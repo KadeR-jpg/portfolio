@@ -1,9 +1,13 @@
 <script lang="ts">
 	import { Motion } from 'svelte-motion'
+	import ye from '$lib/inspoimgs/yeBoot.png' 
+	import axelV from '$lib/inspoimgs/axelVervoordt_v0.png' 
+	import jamesTurrell from '$lib/inspoimgs/jamesTurrell.png' 
+	import dieterRams from '$lib/inspoimgs/dieterRams.png' 
 	let imageArray = [
 		{
 			id: '1',
-			url: '/src/lib/inspoimgs/yeBoot.png',
+			url: `${ye}`,
 			name: 'Kanye West',
 			summary: `Kanye West, the biggest influence of mine.
 				 Spending hours being inspired by his music while i was studying to studying his design decisions.
@@ -11,7 +15,7 @@
 		},
 		{
 			id: '2',
-			url: '/src/lib/inspoimgs/axelVervoordt_v0.png',
+			url: `${axelV}`,
 			name: 'Axel Vervoordt',
 			summary: `Axel Vervoordt, a revolutionary visual artist.
 			 Looking at the spaces that he has curated it is hard to not be inspired and wanting that to seep into my own design.
@@ -19,7 +23,7 @@
 		},
 		{
 			id: '3',
-			url: '/src/lib/inspoimgs/jamesTurrell.png',
+			url: `${jamesTurrell}`,
 			name: 'James Turrell',
 			summary: `James Turrell, an amazing minimalist artist.
 			 	Taking colors and shapes to the maximum.
@@ -28,7 +32,7 @@
 		},
 		{
 			id: '4',
-			url: '/src/lib/inspoimgs/dieterRams.png',
+			url: `${dieterRams}`,
 			name: 'Dieter Rams',
 			summary: `Dieter Rams, the epitome of product design. The Ten Principles of Good Design has been a keystone piece of reference material for me.
 			Being able to build on that foundation of good designs has helped me trim and really focus on what it means to have a good design language.`
