@@ -11,7 +11,7 @@
 	let cardArray = [
 		{
 			title: 'This Website!',
-			description: `This site is a my first large project that i built from scratch.
+			description: `This site is my first large project that i built from scratch.
 			I have been working on this site for quite sometime now and i am super excited to finally be able to present it to you!`,
 			imgSrc: `${svelteLogo}`,
 			link: '/projects',
