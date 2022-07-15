@@ -9,7 +9,7 @@
 	class="flex flex-col rounded-md ring-1 ring-gray-200 md:shadow-md md:ring-2 md:ring-gray-200 md:hover:-translate-y-1 transition-translate ease-in-out duration-200 gap-2 md:rounded-xl p-4"
 >
 	<div class="flex flex-row justify-between">
-		<h2 class="flex text-2xl text-gray-700 md:text-3xl">{title}</h2>
+		<h2 class="flex text-2xl text-gray-700 md:text-2xl">{title}</h2>
 		<Motion
 			let:motion
 			whileHover={{ scale: 1.05 }}

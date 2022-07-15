@@ -14,7 +14,7 @@
 			description: `This site is my first large project that i built from scratch.
 			I have been working on this site for quite sometime now and i am super excited to finally be able to present it to you!`,
 			imgSrc: `${svelteLogo}`,
-			link: '/projects',
+			link: 'https://github.com/KadeR-jpg/portfolio',
 			stackArray: [
 				{
 					language: 'SvelteKit',
@@ -31,7 +31,7 @@
 			]
 		},
 		{
-			title: 'Python Cashier Line Sim',
+			title: 'Cashier Line Sim',
 			description: `Text based Cashier line simulation that i completed for a interview process. Takes in some user input
 			and distributes customers to different lines based on specifications.`,
 			imgSrc: `${pythonLogo}`,
