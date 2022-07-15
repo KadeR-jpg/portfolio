@@ -5,7 +5,7 @@
 
 <Header title={'My Resume'} />
 
-<div class="flex h-screen w-1/2 m-auto">
+<div class="flex h-screen m-auto">
 	<iframe
 		class="inline-block"
 		title="Resume"
