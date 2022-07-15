@@ -44,6 +44,7 @@
 	// 	image.style.border = 'thin dotted #0000FF';
 	// };
 </script>
+
 <div class="flex flex-col flex-grow md:flex-row">
 		<div class="grid grid-cols-4 gap-4 p-4 md:w-2/3">
 			{#each imageArray as { id, url, name, summary }}
