@@ -83,6 +83,9 @@
 		}
 	];
 </script>
+<svelte:head>
+	<title>Projects</title>
+</svelte:head>
 
 <main class="flex flex-col min-h-screen flex-grow">
 	<Header title="My Projects" />

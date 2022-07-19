@@ -4,6 +4,10 @@
 	import Footer from '../Components/Footer.svelte';
 </script>
 
+<svelte:head>
+	<title>About</title>
+</svelte:head>
+
 <Header title={'About Me'} />
 <div class="flex flex-col pl-4 pr-4 pb-4 font-space prose-slate prose-xl text-gray-800">
 	<h2 class="prose text-gray-900 md:text-5xl">

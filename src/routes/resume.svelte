@@ -3,6 +3,10 @@
 	import Footer from '../Components/Footer.svelte';
 </script>
 
+<svelte:head>
+	<title>Resume</title>
+</svelte:head>
+
 <Header title={'My Resume'} />
 
 <div class="flex h-screen m-auto">
