@@ -9,7 +9,7 @@
 	class="flex flex-col rounded-md ring-1 ring-gray-200 md:shadow-md md:ring-2 md:ring-gray-200 md:hover:-translate-y-1 transition-translate ease-in-out duration-200 gap-2 md:rounded-xl p-4"
 >
 	<div class="flex flex-row justify-between">
-		<h2 class="flex text-2xl text-gray-700 md:text-2xl">{title}</h2>
+		<h2 class="flex text-2xl text-gray-800 md:text-2xl">{title}</h2>
 		<Motion
 			let:motion
 			whileHover={{ scale: 1.05 }}
@@ -22,24 +22,21 @@
 			>
 		</Motion>
 	</div>
-	<div class="flex flex-col border-t">
-		<!-- <div class="flex justify-center">
-			<slot>
-				<em>No Content Was Provided</em>
-			</slot>
-		</div> -->
-		<div class="flex flex-row">
+	<div class="flex flex-col border-t ">
+		<div class="flex flex-row align-middle justify-between">
 			<div class="flex flex-col gap-4">
-				<p class="pt-4 pl-4 text-xs text-gray-400">Written With</p>
-				<div class="flex flex-col gap-4 content-center">
+				<p class="pt-4 pl-4 text-xs md:text-sm text-gray-600">Written With</p>
+				<div class="flex flex-col gap-4 items-start">
 					<slot>No icons provided</slot>
 				</div>
 			</div>
-			<p
-				class="w-1/2 flex justify-center text-center m-auto font-light md:font-normal prose prose-sm md:prose-base prose-neutral"
-			>
-				{description}
-			</p>
+			<div class="flex flex-col w-1/2 md:w-2/3 items-center">
+				<p
+					class="flex text-right font-light align-middle justify-center text-sm md:text-lg md:font-normal pt-4 pb-4 text-gray-700"
+				>
+					{description}
+				</p>
+			</div>
 		</div>
 	</div>
 </div>
