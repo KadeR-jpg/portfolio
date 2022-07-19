@@ -62,7 +62,7 @@
 		{/each}
 	</div>
 	<div class="flex flex-col md:p-4 text-xs justify-center md:w-1/3">
-		<p class="flex font-space text-gray-700 font-light md:text-base">
+		<p class="flex font-sans text-gray-700 font-light md:font-normal">
 			{inspo_text}
 		</p>
 	</div>

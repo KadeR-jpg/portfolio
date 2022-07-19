@@ -8,6 +8,7 @@
 	import tsLogo from '$lib/Icons/tsLogo.svg';
 	import supaLogo from '$lib/Icons/supabaseLogo.svg';
 	import numpyLogo from '$lib/Icons/numpyLogo.svg';
+	import figmaLogo from '$lib/Icons/figmaLogo.svg'
 	let devArray = [
 		{
 			title: 'This Website!',
@@ -82,7 +83,58 @@
 			]
 		}
 	];
+
+
+	// let designArray = [
+	// 	{
+	// 		title: 'INQ Tattoo',
+	// 		description: `Logo designed for a local tattoo artist. `,
+	// 		link: 'https://github.com/KadeR-jpg/portfolio',
+	// 		stackArray: [
+	// 			{
+	// 				language: 'Figma',
+	// 				icon: `${figmaLogo}`
+	// 			}
+	// 		]
+	// 	},
+	// 	{
+	// 		title: 'Beartooth Repair',
+	// 		description: `A personal project that i have been working on in my free-time. The main function of the website
+	// 		will be to store user data using a postgres database that is hosted on Supabase.`,
+	// 		link: 'https://github.com/KadeR-jpg/Cashier-Line-Sim',
+	// 		stackArray: [
+	// 			{
+	// 				language: 'Figma',
+	// 				icon: `${figmaLogo}`
+	// 			}
+	// 		]
+	// 	},
+	// 	{
+	// 		title: 'Spectis',
+	// 		description: `Some logo designs for my personal website`,
+	// 		link: 'https://github.com/KadeR-jpg/data-mining-final/tree/main/FinalProject',
+	// 		stackArray: [
+	// 			{
+	// 				language: 'Figma',
+	// 				icon: `${figmaLogo}`
+	// 			}
+	// 		]
+	// 	},
+	// 	{
+	// 		title: 'Mock-Up app',
+	// 		description: `Text based Cashier line simulation that I completed for a interview process. The program takes in user input
+	// 		of the same shape and then distributes customers to different lines based on specifications.`,
+	// 		link: 'https://github.com/KadeR-jpg/Cashier-Line-Sim',
+	// 		stackArray: [
+	// 			{
+	// 				language: 'Figma',
+	// 				icon: `${figmaLogo}`
+	// 			}
+	// 		]
+	// 	}
+	// ];
 </script>
+
 <svelte:head>
 	<title>Projects</title>
 </svelte:head>
@@ -107,7 +159,23 @@
 				</Card>
 			{/each}
 		</div>
-		<h2 class="flex justify-center text-4xl p-4 pb-10">Design Projects</h2>
+		<!-- <h2 class="flex justify-center text-4xl p-4 pb-10">Design Projects</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 md:p-8 p-4">
+			{#each designArray as { title, description, link, stackArray }}
+				<Card {title} {description} {link}>
+					{#each stackArray as stackArray}
+						<div class="flex flex-row gap-2 items-center">
+							<img
+								src={stackArray.icon}
+								alt={stackArray.language}
+								class="w-6 h-6 md:w-10 md:h-10"
+							/>
+							<p class="font-light text-sm md:font-normal text-gray-500">{stackArray.language}</p>
+						</div>
+					{/each}
+				</Card>
+			{/each}
+		</div> -->
 	</div>
 	<Footer />
 </main>
