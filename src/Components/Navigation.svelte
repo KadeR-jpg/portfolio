@@ -3,7 +3,7 @@
 	import { fly } from 'svelte/transition';
 	let open = false;
 	let onClick = () => {
-		open = !open
+		open = !open;
 	};
 	let width: string | number = 50;
 </script>
@@ -37,7 +37,7 @@
 
 	{#if open}
 		<nav
-			class="flex flex-row absolute right-0 top-8 p-4 justify-end"
+			class="flex flex-row absolute right-0 p-4 top-8 justify-end"
 			transition:fly={{ x: 100, duration: 200 }}
 		>
 			<div class="flex flex-col gap-4 absolute bg-red-600 right-0 p-5 rounded-sm">
@@ -53,8 +53,12 @@
 <div class="md:flex flex-row justify-center align-baseline hidden">
 	<nav id="links" class="flex gap-6 pr-4 pt-2 text-2xl">
 		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/">Home</a>
-		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/resume">Resume</a>
-		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/projects">Projects</a>
+		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/resume"
+			>Resume</a
+		>
+		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/projects"
+			>Projects</a
+		>
 		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/about">About</a>
 	</nav>
 </div>
