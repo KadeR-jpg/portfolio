@@ -30,9 +30,9 @@
 					<slot>No icons provided</slot>
 				</div>
 			</div>
-			<div class="flex flex-col w-1/2 md:w-2/3 items-center">
+			<div class="flex flex-col w-1/2 lg:w-2/3 items-center">
 				<p
-					class="flex text-right font-light align-middle justify-center text-sm md:text-lg md:font-normal pt-4 pb-4 text-gray-700"
+					class="flex text-right font-light align-middle justify-center text-sm md:text-base lg:text-lg md:font-normal pt-4 pb-4 text-gray-700"
 				>
 					{description}
 				</p>

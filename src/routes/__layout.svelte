@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '../lib/Icons/favicon.svg';
+	import favicon from '$lib/Icons/favicon.svg';
 </script>
 
 <svelte:head>
