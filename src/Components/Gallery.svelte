@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { Motion } from 'svelte-motion';
+	import { slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import ye from '$lib/inspoimgs/yeBoot.png';
 	import axelV from '$lib/inspoimgs/axelVervoordt_v0.png';
 	import jamesTurrell from '$lib/inspoimgs/jamesTurrell.png';
@@ -17,7 +19,7 @@
 			id: '2',
 			url: `${axelV}`,
 			name: 'Axel Vervoordt',
-			summary: `"Axel Vervoordt is a visionary visual artist whose curated spaces consistently
+			summary: `Axel Vervoordt is a visionary visual artist whose curated spaces consistently
 			 inspire and evoke emotion. I often find myself striving to replicate this effect in my own work.
 			  His minimalistic and brutalistic interior designs are influential to me, as I am constantly
 			   wondering how I can emulate these styles in web design.`
@@ -65,8 +67,13 @@
 		{/each}
 	</div>
 	<div class="flex flex-col md:p-4 text-xs justify-center md:w-1/3">
-		<p class="flex font-sans text-gray-700 font-light md:font-normal">
-			{inspo_text}
-		</p>
+		{#key inspo_text}
+			<p
+				class="flex font-sans text-gray-700 font-light md:font-normal"
+				transition:slide={{ duration: 300, easing: quintOut }}
+			>
+				{inspo_text}
+			</p>
+		{/key}
 	</div>
 </div>
