@@ -8,12 +8,13 @@
 	import tsLogo from '$lib/Icons/tsLogo.svg';
 	import supaLogo from '$lib/Icons/supabaseLogo.svg';
 	import numpyLogo from '$lib/Icons/numpyLogo.svg';
-	import figmaLogo from '$lib/Icons/figmaLogo.svg'
+	import figmaLogo from '$lib/Icons/figmaLogo.svg';
 	let devArray = [
 		{
 			title: 'This Website!',
-			description: `This site is my first large project that I built from scratch. 
-			I have been working on this site for quite sometime now and I am super excited to finally be able to present it to you!`,
+			description: `This website represents my first major project that I have built from the ground up.
+			 It has been a long-term undertaking, as i was never satisfied on the design but here it is
+			  and I am thrilled to finally be able to share it with you.`,
 			link: 'https://github.com/KadeR-jpg/portfolio',
 			stackArray: [
 				{
@@ -32,8 +33,9 @@
 		},
 		{
 			title: 'Spectis',
-			description: `A personal project that i have been working on in my free-time. The main function of the website
-			will be to store user data using a postgres database that is hosted on Supabase.`,
+			description: `I am currently working on a personal project in my free time
+			 which involves building a website that utilizes a Postgres database hosted
+			  on Supabase to store user data.`,
 			link: 'https://github.com/KadeR-jpg/Cashier-Line-Sim',
 			stackArray: [
 				{
@@ -56,8 +58,9 @@
 		},
 		{
 			title: 'Data Mining Final',
-			description: `For my data-mining final i downloaded a Spotify music data-set and picked certain aspects and trends from 
-			the data to try and see if there was correlation between the energy level and popularity of the song.`,
+			description: `For my data mining final, I utilized a Spotify music dataset to analyze
+			 the correlation between energy level and song popularity. I selected specific
+			  elements and trends from the data to examine this relationship.`,
 			link: 'https://github.com/KadeR-jpg/data-mining-final/tree/main/FinalProject',
 			stackArray: [
 				{
@@ -72,8 +75,9 @@
 		},
 		{
 			title: 'Cashier Line Sim',
-			description: `Text based Cashier line simulation that I completed for a interview process. The program takes in user input
-			of the same shape and then distributes customers to different lines based on specifications.`,
+			description: `I developed a text-based cashier line simulation for an interview process.
+			 The program accepts user input of specific shapes and distributes customers to different
+			  lines based on predetermined criteria.`,
 			link: 'https://github.com/KadeR-jpg/Cashier-Line-Sim',
 			stackArray: [
 				{
@@ -83,7 +87,6 @@
 			]
 		}
 	];
-
 
 	// let designArray = [
 	// 	{

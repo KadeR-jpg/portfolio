@@ -8,33 +8,36 @@
 		{
 			id: '1',
 			url: `${ye}`,
-			name: 'Kanye West',
-			summary: `Kanye West, the biggest influence of mine.
-				 Spending hours being inspired by his music while I was studying to studying his design decisions.
-				  An all around artist that heavily inspires my creative decisions.`
+			name: 'Ye West',
+			summary: `Ye West is a major influence on my work. His music has inspired
+			 me for countless hours, and I have also studied his design choices in depth.
+			  As an all-around artist, he has had a significant impact on my creative process and decision-making.`
 		},
 		{
 			id: '2',
 			url: `${axelV}`,
 			name: 'Axel Vervoordt',
-			summary: `Axel Vervoordt, a revolutionary visual artist.
-			 Looking at the spaces that he has curated it is hard to not be inspired. Striving to match that feeling in my personal work.
-			 I have found myself wondering how I can emulate this minimalism/brutalism interior designs`
+			summary: `"Axel Vervoordt is a visionary visual artist whose curated spaces consistently
+			 inspire and evoke emotion. I often find myself striving to replicate this effect in my own work.
+			  His minimalistic and brutalistic interior designs are influential to me, as I am constantly
+			   wondering how I can emulate these styles in web design.`
 		},
 		{
 			id: '3',
 			url: `${jamesTurrell}`,
 			name: 'James Turrell',
-			summary: `James Turrell, an amazing artist.
-			 	Taking colors and shapes to the maximum with so little. Using natural spaces to create ethereal shapes an colors.
-			 	His works gives me hope that gradient color spaces can be cool.`
+			summary: `
+			James Turrell is an exceptional artist who has mastered
+			 the art of creating amazing visuals through using a few elements.
+			 His works gives me hope that gradients can be cool.`
 		},
 		{
 			id: '4',
 			url: `${dieterRams}`,
 			name: 'Dieter Rams',
-			summary: `Dieter Rams. The Ten Principles of Good Design has been a keystone piece of reference material for me.
-			Being able to build on that foundation of good designs has helped me really focus on what it means to have a good design language.`
+			summary: `The Ten Principles of Good Design by Dieter Rams has served as a valuable
+			 reference for me in my design work. Using these as a jump off point has helped my
+			  understanding of what constitutes a good design language`
 		}
 	];
 	let inspo_text = imageArray[0].summary;
