@@ -2,13 +2,13 @@
 	import Footer from '../Components/Footer.svelte';
 	import Card from '../Components/Card.svelte';
 	import Header from '../Components/Header.svelte';
-	import pythonLogo from '$lib/Icons/python.svg';
+	import pythonLogo from '$lib/Icons/python_logo.svg';
 	import svelteLogo from '$lib/Icons/sv_logo.svg';
-	import tailwindLogo from '$lib/Icons/tailwind.svg';
-	import tsLogo from '$lib/Icons/tsLogo.svg';
-	import supaLogo from '$lib/Icons/supabaseLogo.svg';
-	import numpyLogo from '$lib/Icons/numpyLogo.svg';
-	import figmaLogo from '$lib/Icons/figmaLogo.svg';
+	import tailwindLogo from '$lib/Icons/tailwind_logo.svg';
+	import tsLogo from '$lib/Icons/ts_logo.svg';
+	import supaLogo from '$lib/Icons/supabase_logo.svg';
+	import numpyLogo from '$lib/Icons/numpy_logo.svg';
+	import figmaLogo from '$lib/Icons/figma_logo.svg';
 	let devArray = [
 		{
 			title: 'This Website!',

@@ -6,4 +6,6 @@
 <svelte:head>
 	<link rel="icon" href={favicon} type="image/svg" />
 </svelte:head>
-<slot />
+<body class="smoll-smooth flex flex-col justify-center">
+	<slot />
+</body>

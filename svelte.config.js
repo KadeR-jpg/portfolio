@@ -12,7 +12,7 @@ const config = {
 			postcss: {
 				plugins: [
 					tailwind,
-					autoprefixer
+					autoprefixer,
 				]
 			},
 		}),

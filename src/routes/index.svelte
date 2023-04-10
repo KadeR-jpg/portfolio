@@ -7,7 +7,7 @@
 	<title>Welcome</title>
 </svelte:head>
 
-<main class="flex flex-col min-h-screen flex-grow">
+<main class="flex flex-col min-h-screen justify-center">
 	<Header title={'Welcome to my Portfolio'} />
 	<article
 		class="flex flex-col pl-4 pr-4 font-sans prose-slate prose-xl md:prose-2xl flex-grow md:w-1/2 md:m-auto md:justify-center md:content-center"
