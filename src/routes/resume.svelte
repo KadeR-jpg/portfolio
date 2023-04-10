@@ -125,8 +125,9 @@
 <div class="flex flex-col gap-2 sm:w-full md:w-3/5 p-4 self-center">
 	<div class="flex flex-row justify-between">
 		<div class="inline-flex text-xl items-center">Professional Experience</div>
-		<a class="flex flex-col border-2 rounded-2xl hover:border-sky-200 hover:shadow-md p-2 text-neutral-500" href={resume}
-			>PDF version</a
+		<a
+			class="flex flex-col border-2 rounded-2xl hover:border-sky-200 hover:shadow-md p-2 text-neutral-500"
+			href={resume}>PDF version</a
 		>
 	</div>
 	{#each jobs_array as job}
@@ -153,19 +154,21 @@
 		</div>
 	{/each}
 	<div class="inline-flex self-center text-xl ">Language and Tool Proficiency</div>
-	<div class="flex flex-col gap-4 border border-neutral-300 p-4 rounded-2xl shadow">
+	<div
+		class="flex flex-col gap-4 border border-neutral-300 py-4 md:p-4 rounded-2xl shadow"
+	>
 		{#each language_arr as la}
-			<div class="flex flex-row p-0.5 justify-between items-center">
+			<div class="flex flex-row  md:p-0.5 justify-evenly md:justify-between items-center">
 				<Tooltip title={la.name}>
-					<img src={la.image} alt={la.name} title={la.name} class="w-4 h-4 md:w-6 md:h-6" />
+					<img src={la.image} alt={la.name} title={la.name} class="w-8 h-8 md:w-6 md:h-6" />
 				</Tooltip>
-				<p class="text-neutral-500">{la.name}</p>
-				<div class="w-1/4 bg-gray-200 rounded-full h-3.75">
+				<p class="text-neutral-500 hidden md:block">{la.name}</p>
+				<div class="w-1/2 md:w-1/4 bg-gray-200 rounded-full md:h-3.75">
 					<div
 						class="bg-green-600/80 text-xs font-medium text-green-900 text-center p-0.5 leading-none rounded-full"
 						style="width: {la.familiarity}%"
 					>
-						{la.familiarity}%
+						<p class=" md:inline-block">{la.familiarity}%</p>
 					</div>
 				</div>
 			</div>

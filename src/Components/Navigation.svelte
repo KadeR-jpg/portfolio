@@ -44,7 +44,7 @@
 				<a class="text-2xl font-light text-white text-end" href="/">Home</a>
 				<a class="text-2xl font-light text-white text-end" href="/resume">Resume</a>
 				<a class="text-2xl font-light text-white text-end" href="/projects">Projects</a>
-				<a class="text-2xl font-light text-white text-end" href="/about">About</a>
+				<!-- <a class="text-2xl font-light text-white text-end" href="/about">About</a> -->
 			</div>
 		</nav>
 	{/if}
