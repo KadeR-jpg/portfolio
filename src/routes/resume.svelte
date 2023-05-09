@@ -131,11 +131,17 @@
 		>
 	</div>
 	{#each jobs_array as job}
-		<div class="flex flex-col pt-4 border border-neutral-300 rounded-2xl shadow">
-			<div class="flex flex-row justify-around text-sm font-bold border-b mx-2 border-neutral-200">
-				<p>{job.title}</p>
-				<p>{job.company}</p>
-				<p>{job.date}</p>
+		<div class="flex flex-col pt-4 px-2 border border-neutral-300 rounded-2xl shadow">
+			<div class="flex flex-col gap-1 pb-2 items-center border-b mx-2 border-neutral-200">
+				<p class="inline-flex text-lg font-bold md:font-semibold ">{job.title}</p>
+				<div class="inline-flex w-full justify-around md:justify-center md:gap-4 ">
+					<p class="inline-flex text-xs md:text-sm text-neutral-600 font-normal">
+						{job.company}
+					</p>
+					<p class="inline-flex text-xs md:text-sm text-neutral-600 font-normal">
+						{job.date}
+					</p>
+				</div>
 			</div>
 			<article class="flex flex-col pb-4 gap-3  pt-2 pl-4 text-xs">
 				{#each Array(job.about.length) as _, idx}
@@ -147,38 +153,41 @@
 	<div class="inline-flex self-center text-xl ">Academic Projects</div>
 	{#each academic_projects as ap}
 		<div
-			class="flex flex-col pt-2  border items-center text-sm border-neutral-300 rounded-2xl shadow"
+			class="flex flex-col pt-2  border items-center px-4 text-sm border-neutral-300 rounded-2xl shadow"
 		>
-			<h3 class="mb-2 font-bold border-neutral-300 border-b text-sm">{ap.title}</h3>
-			<p class="text-xs pb-4 pl-4">{ap.about}</p>
+			<p
+				class=" inline-flex pb-2 items-center border-b font-bold md:font-semibold text-lg border-neutral-200 w-full justify-center"
+			>
+				{ap.title}
+			</p>
+			<p class="text-xs md:text-sm p-4">{ap.about}</p>
 		</div>
 	{/each}
 	<div class="inline-flex self-center text-xl ">Language and Tool Proficiency</div>
 	<div
-		class="flex flex-col gap-4 border border-neutral-300 py-4 md:p-4 rounded-2xl shadow"
+		class="grid grid-cols-3 md:grid-cols-9 place gap-4 border  border-neutral-300 py-4 md:p-4 rounded-2xl shadow overflow-hidden"
 	>
 		{#each language_arr as la}
-			<div class="flex flex-row  md:p-0.5 justify-evenly md:justify-between items-center">
+			<div class="flex relative justify-center m-auto ">
 				<Tooltip title={la.name}>
-					<img src={la.image} alt={la.name} title={la.name} class="w-8 h-8 md:w-6 md:h-6" />
+					<span class="absolute -bottom-1  -left-1 rounded-2xl  bg-black w-full h-full" />
+					<img
+						src={la.image}
+						alt={la.name}
+						title={la.name}
+						class="w-12 h-12 md:w-20 md:h-20 relative border-2 border-black bg-white rounded-2xl p-1 transition-transform duration-75 hover:translate-y-1 hover:-translate-x-1"
+					/>
 				</Tooltip>
-				<p class="text-neutral-500 hidden md:block">{la.name}</p>
-				<div class="w-1/2 md:w-1/4 bg-gray-200 rounded-full md:h-3.75">
-					<div
+			</div>
+			<!-- <div class="w-1/2 md:w-1/4 bg-gray-200 rounded-full md:h-3.75">
+				<div
 						class="bg-green-600/80 text-xs font-medium text-green-900 text-center p-0.5 leading-none rounded-full"
 						style="width: {la.familiarity}%"
 					>
 						<p class=" md:inline-block">{la.familiarity}%</p>
 					</div>
-				</div>
-			</div>
+				</div> -->
 		{/each}
-		<p
-			class="inline-flex text-center w-4/5 self-center justify-center text-xs border-t border-neutral-200  p-4 text-neutral-400"
-		>
-			* This is how much i would score my ability to use the language or tool effectively. In no way
-			is this objective representation of my understanding of the language or tool.
-		</p>
 	</div>
 </div>
 
