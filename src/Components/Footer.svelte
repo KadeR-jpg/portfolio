@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Motion } from 'svelte-motion';
-	import { confettiAction } from 'svelte-legos';
 	import linkedInLogo from '$lib/Icons/linkedin-48.svg';
 	import githubLogo from '$lib/Icons/octocat-48.svg';
 
@@ -31,7 +30,6 @@
 						class="absolute -bottom-1  -left-1 rounded-lg md:rounded-2xl  bg-black w-full h-full"
 					/>
 					<button
-						use:confettiAction
 						class=" text-xs md:text-sm px-2 py-3  relative border-2 border-black bg-white rounded-lg md:rounded-2xl p-1 transition-transform duration-75 hover:translate-y-1 hover:-translate-x-1"
 						>kade.pitsch@gmail.com
 					</button>
