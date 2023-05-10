@@ -42,7 +42,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"cssnano": "^5.1.12",
-		"svelte-legos": "^0.2.1"
+		"cssnano": "^5.1.12"
 	}
 }
