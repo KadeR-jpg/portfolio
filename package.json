@@ -2,7 +2,7 @@
 	"name": "portfolio",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev --host",
+		"dev": "vite dev --host",
 		"build": "svelte-kit build",
 		"mobile": "svelte-kit dev --host",
 		"package": "svelte-kit package",
@@ -16,8 +16,8 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.22.2",
-		"@sveltejs/adapter-auto": "^1.0.0-next.51",
-		"@sveltejs/kit": "^1.0.0-next.352",
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/kit": "^1.0.0-next.589",
 		"@tailwindcss/aspect-ratio": "^0.4.0",
 		"@tailwindcss/forms": "^0.4.1",
 		"@tailwindcss/line-clamp": "^0.3.1",
@@ -28,7 +28,6 @@
 		"eslint": "^8.18.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"mdsvex": "^0.10.6",
 		"postcss": "^8.4.14",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
@@ -42,6 +41,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"cssnano": "^5.1.12"
+		"cssnano": "^5.1.12",
+		"vite": "^4.3.5"
 	}
 }

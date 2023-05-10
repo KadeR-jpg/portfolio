@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Motion } from 'svelte-motion';
 	import linkedInLogo from '$lib/Icons/linkedin-48.svg';
 	import githubLogo from '$lib/Icons/octocat-48.svg';
 
