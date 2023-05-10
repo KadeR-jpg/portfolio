@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Header from '../Components/Header.svelte';
-	import Footer from '../Components/Footer.svelte';
-	import Tooltip from '../Components/Tooltip.svelte';
+	import Header from '../../Components/Header.svelte';
+	import Footer from '../../Components/Footer.svelte';
+	import Tooltip from '../../Components/Tooltip.svelte';
 	import resume from '$lib/2023_resume.pdf';
 	import py_logo from '$lib/Icons/python_logo.svg';
 	import sv_logo from '$lib/Icons/sv_logo.svg';

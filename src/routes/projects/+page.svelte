@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Footer from '../Components/Footer.svelte';
-	import Card from '../Components/Card.svelte';
-	import Header from '../Components/Header.svelte';
+	import Footer from '../../Components/Footer.svelte';
+	import Card from '../../Components/Card.svelte';
+	import Header from '../../Components/Header.svelte';
 	import pythonLogo from '$lib/Icons/python_logo.svg';
 	import svelteLogo from '$lib/Icons/sv_logo.svg';
 	import tailwindLogo from '$lib/Icons/tailwind_logo.svg';

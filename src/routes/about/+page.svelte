@@ -1,7 +1,7 @@
 <script>
-	import Header from '../Components/Header.svelte';
-	import Gallery from '../Components/Gallery.svelte';
-	import Footer from '../Components/Footer.svelte';
+	import Header from '../../Components/Header.svelte';
+	import Gallery from '../../Components/Gallery.svelte';
+	import Footer from '../../Components/Footer.svelte';
 </script>
 
 <svelte:head>
