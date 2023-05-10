@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Motion } from 'svelte-motion';
+
 	export let title: string = 'No Title Provided';
 	export let description: string = 'No description provided.';
 	export let link: string = 'No link provided';

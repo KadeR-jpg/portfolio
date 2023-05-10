@@ -8,7 +8,8 @@ const config = {
         '1.025': '1.025'
       },
       fontFamily: {
-        'grenze': ['Grenze Gotisch', 'serif']
+        'grenze': ['Grenze Gotisch', 'serif'],
+        'plex': ['IBM Plex Sans', 'serif'],
       },
     },
 

@@ -40,17 +40,19 @@
 			class="flex flex-row absolute right-0 p-4 top-8 justify-end"
 			transition:fly={{ x: 100, duration: 200 }}
 		>
-			<div class="flex flex-col gap-4 absolute bg-red-600 right-0 p-5 rounded-sm">
-				<a class="text-2xl font-light text-white text-end" href="/">Home</a>
-				<a class="text-2xl font-light text-white text-end" href="/resume">Resume</a>
-				<a class="text-2xl font-light text-white text-end" href="/projects">Projects</a>
+			<div
+				class="flex flex-col gap-4 absolute bg-red-600 right-0 p-5 rounded-sm text-2xl font-light text-white text-end"
+			>
+				<a href="/">Home</a>
+				<a href="/resume">Resume</a>
+				<a href="/projects">Projects</a>
 				<!-- <a class="text-2xl font-light text-white text-end" href="/about">About</a> -->
 			</div>
 		</nav>
 	{/if}
 </div>
 
-<div class="md:flex flex-row justify-center align-baseline hidden">
+<div class="md:flex flex-row justify-center align-baseline hidden font-plex">
 	<nav id="links" class="flex gap-6 pr-4 pt-2 text-2xl">
 		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/">Home</a>
 		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/resume"

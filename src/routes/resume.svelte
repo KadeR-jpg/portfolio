@@ -150,7 +150,7 @@
 			</article>
 		</div>
 	{/each}
-	<div class="inline-flex self-center text-xl ">Academic Projects</div>
+	<div class="inline-flex text-xl ">Academic Projects</div>
 	{#each academic_projects as ap}
 		<div
 			class="flex flex-col pt-2  border items-center px-4 text-sm border-neutral-300 rounded-2xl shadow"
@@ -163,7 +163,7 @@
 			<p class="text-xs md:text-sm p-4">{ap.about}</p>
 		</div>
 	{/each}
-	<div class="inline-flex self-center text-xl ">Language and Tool Proficiency</div>
+	<div class="inline-flex self-center text-xl ">Known Languages and Tools</div>
 	<div
 		class="grid grid-cols-3 md:grid-cols-9 place gap-4 border  border-neutral-300 py-4 md:p-4 rounded-2xl shadow overflow-hidden"
 	>
@@ -190,5 +190,3 @@
 		{/each}
 	</div>
 </div>
-
-<Footer />
