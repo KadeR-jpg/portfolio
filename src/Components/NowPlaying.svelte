@@ -2,13 +2,16 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import AsciiSpinner from './AsciiSpinner.svelte';
+	import { dev } from '$app/environment';
+	import { PUBLIC_DEV_URL, PUBLIC_PROD_URL } from '$env/static/public';
+	const BASE_URL: string = dev ? PUBLIC_DEV_URL : PUBLIC_PROD_URL;
 	let song: any;
 	let isLoading = false;
 	$: song;
 
 	async function getNowPlaying() {
 		isLoading = true;
-		song = await fetch('http://localhost:5173/backend/now_playing')
+		song = await fetch(BASE_URL + 'backend/now_playing')
 			.then((res) => res.json())
 			.finally(() => {
 				isLoading = false;

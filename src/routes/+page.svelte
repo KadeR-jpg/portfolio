@@ -3,6 +3,7 @@
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 	import toast from 'svelte-french-toast';
+	
 	inject({ mode: dev ? 'development' : 'production' });
 
 	import NowPlaying from '../Components/NowPlaying.svelte';

@@ -1,13 +1,12 @@
 import { dev } from '$app/environment';
 import {
-	DEV_URL,
-	PROD_URL,
 	SPOTIFY_CLIENT_ID,
 	SPOTIFY_CLIENT_SECRET,
 	SPOTIFY_REFRESH_TOKEN
 } from '$env/static/private';
+import { PUBLIC_DEV_URL, PUBLIC_PROD_URL } from '$env/static/public';
 
-const BASE_URL: string = dev ? DEV_URL : PROD_URL;
+const BASE_URL: string = dev ? PUBLIC_DEV_URL : PUBLIC_PROD_URL;
 console.log(BASE_URL);
 
 const credentials: string = SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET;
