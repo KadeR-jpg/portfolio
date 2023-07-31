@@ -1,7 +1,6 @@
 <script>
 	import Header from '../../Components/Header.svelte';
 	import Gallery from '../../Components/Gallery.svelte';
-	import Footer from '../../Components/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -9,7 +8,7 @@
 </svelte:head>
 
 <Header title={'About Me'} />
-<div class="flex flex-col pl-4 pr-4 pb-4 font-sans prose-slate prose-xl text-gray-800">
+<div class="flex flex-col pl-4 pr-4 pb-4 font-plex prose-slate prose-xl text-gray-800">
 	<h2 class="prose text-gray-900 md:text-5xl">
 		I grew up in a small town of Montana, surrounded by fields and cows.
 	</h2>
@@ -24,7 +23,7 @@
 		subject.
 	</p>
 	<Gallery />
-	<h3 class="text-right md:text-5xl  mt-4">
+	<h3 class="text-right md:text-5xl mt-4">
 		I graduated in May of 2021 with a bachelors degree in computer science
 	</h3>
 	<p class="indent-4">
@@ -43,4 +42,3 @@
 		create unique, timeless designs, rather than following current website or design trends.
 	</p>
 </div>
-

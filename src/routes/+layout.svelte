@@ -1,14 +1,13 @@
 <script lang="ts">
 	import '../app.postcss';
 	import favicon from '$lib/Icons/favicon.svg';
-	import Footer from '../Components/Footer.svelte';
-	import Header from '../Components/Header.svelte';
+	import { Toaster } from 'svelte-french-toast';
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} type="image/svg" />
 </svelte:head>
-<body class="flex flex-col min-h-screen font-plex">
+<Toaster />
+<body class="flex flex-col w-screen font-plex min-h-screen flex-grow h-screen overflow-x-hidden">
 	<slot />
-	<Footer />
 </body>

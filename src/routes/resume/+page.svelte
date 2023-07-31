@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Header from '../../Components/Header.svelte';
-	import Footer from '../../Components/Footer.svelte';
 	import Tooltip from '../../Components/Tooltip.svelte';
 	import resume from '$lib/2023_resume.pdf';
 	import py_logo from '$lib/Icons/python_logo.svg';
@@ -133,8 +132,8 @@
 	{#each jobs_array as job}
 		<div class="flex flex-col pt-4 px-2 border border-neutral-300 rounded-2xl shadow">
 			<div class="flex flex-col gap-1 pb-2 items-center border-b mx-2 border-neutral-200">
-				<p class="inline-flex text-lg font-bold md:font-semibold ">{job.title}</p>
-				<div class="inline-flex w-full justify-around md:justify-center md:gap-4 ">
+				<p class="inline-flex text-lg font-bold md:font-semibold">{job.title}</p>
+				<div class="inline-flex w-full justify-around md:justify-center md:gap-4">
 					<p class="inline-flex text-xs md:text-sm text-neutral-600 font-normal">
 						{job.company}
 					</p>
@@ -143,17 +142,17 @@
 					</p>
 				</div>
 			</div>
-			<article class="flex flex-col pb-4 gap-3  pt-2 pl-4 text-xs">
+			<article class="flex flex-col pb-4 gap-3 pt-2 pl-4 text-xs">
 				{#each Array(job.about.length) as _, idx}
 					<li class="list-disc list-inside">{job.about[idx]}</li>
 				{/each}
 			</article>
 		</div>
 	{/each}
-	<div class="inline-flex text-xl ">Academic Projects</div>
+	<div class="inline-flex text-xl">Academic Projects</div>
 	{#each academic_projects as ap}
 		<div
-			class="flex flex-col pt-2  border items-center px-4 text-sm border-neutral-300 rounded-2xl shadow"
+			class="flex flex-col pt-2 border items-center px-4 text-sm border-neutral-300 rounded-2xl shadow"
 		>
 			<p
 				class=" inline-flex pb-2 items-center border-b font-bold md:font-semibold text-lg border-neutral-200 w-full justify-center"
@@ -163,14 +162,14 @@
 			<p class="text-xs md:text-sm p-4">{ap.about}</p>
 		</div>
 	{/each}
-	<div class="inline-flex self-center text-xl ">Known Languages and Tools</div>
+	<div class="inline-flex self-center text-xl">Known Languages and Tools</div>
 	<div
-		class="grid grid-cols-3 md:grid-cols-9 place gap-4 border  border-neutral-300 py-4 md:p-4 rounded-2xl shadow overflow-hidden"
+		class="grid grid-cols-3 md:grid-cols-9 place gap-4 border border-neutral-300 py-4 md:p-4 rounded-2xl shadow overflow-hidden"
 	>
 		{#each language_arr as la}
-			<div class="flex relative justify-center m-auto ">
+			<div class="flex relative justify-center m-auto">
 				<Tooltip title={la.name}>
-					<span class="absolute -bottom-1  -left-1 rounded-2xl  bg-black w-full h-full" />
+					<span class="absolute -bottom-1 -left-1 rounded-2xl bg-black w-full h-full" />
 					<img
 						src={la.image}
 						alt={la.name}

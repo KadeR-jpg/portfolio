@@ -1,0 +1,15 @@
+{
+    "framework": "sveltekit",
+    "devCommand": "vite --port $PORT",
+    "functions": {
+        "api/main.go": {
+            "memory": 3008
+        }
+    },
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "api/main"
+        }
+    ]
+}

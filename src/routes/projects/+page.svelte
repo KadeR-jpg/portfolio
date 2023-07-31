@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Footer from '../../Components/Footer.svelte';
 	import Card from '../../Components/Card.svelte';
 	import Header from '../../Components/Header.svelte';
 	import pythonLogo from '$lib/Icons/python_logo.svg';
@@ -8,7 +7,6 @@
 	import tsLogo from '$lib/Icons/ts_logo.svg';
 	import supaLogo from '$lib/Icons/supabase_logo.svg';
 	import numpyLogo from '$lib/Icons/numpy_logo.svg';
-	import figmaLogo from '$lib/Icons/figma_logo.svg';
 	let devArray = [
 		{
 			title: 'This Website!',
@@ -146,11 +144,11 @@
 	<Header title="My Projects" />
 	<div class="flex flex-col flex-grow">
 		<h2 class="flex justify-center md:text-4xl p-4 md:pb-10 text-2xl">Development Projects</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 md:p-8 p-4 ">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 md:p-8 p-4">
 			{#each devArray as { title, description, link, stackArray }}
 				<Card {title} {description} {link}>
 					{#each stackArray as stackArray}
-						<div class="flex flex-row gap-2 items-center ">
+						<div class="flex flex-row gap-2 items-center">
 							<img
 								src={stackArray.icon}
 								alt={stackArray.language}

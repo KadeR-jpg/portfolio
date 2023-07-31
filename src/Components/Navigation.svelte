@@ -13,7 +13,7 @@
 		on:click={onClick}
 		class="flex md:hidden
                             cursor-pointer
-                            justify-end align-top"
+                            justify-end align-middle"
 	>
 		<svg
 			class:open
@@ -37,11 +37,11 @@
 
 	{#if open}
 		<nav
-			class="flex flex-row absolute right-0 p-4 top-8 justify-end"
+			class="flex flex-row absolute right-0 pt-4 top-8 justify-end"
 			transition:fly={{ x: 100, duration: 200 }}
 		>
 			<div
-				class="flex flex-col gap-4 absolute bg-red-600 right-0 p-5 rounded-sm text-2xl font-light text-white text-end"
+				class="flex flex-col gap-4 absolute border-2 border-black rounded-2xl bg-purple-300 right-0 p-5 text-2xl text-black shadow-lg text-end"
 			>
 				<a href="/">Home</a>
 				<a href="/resume">Resume</a>
@@ -52,16 +52,18 @@
 	{/if}
 </div>
 
-<div class="md:flex flex-row justify-center align-baseline hidden font-plex">
-	<nav id="links" class="flex gap-6 pr-4 pt-2 text-2xl">
-		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/">Home</a>
-		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/resume"
+<div class="md:flex flex-row justify-center place-items-center hidden font-plex">
+	<nav class="flex gap-6 pr-4 pt-2 text-2xl">
+		<a class="hover:text-purple-500 transition-colors ease-in-out duration-150" href="/">Home</a>
+		<a class="hover:text-purple-500 transition-colors ease-in-out duration-150" href="/resume"
 			>Resume</a
 		>
-		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/projects"
+		<a class="hover:text-purple-500 transition-colors ease-in-out duration-150" href="/projects"
 			>Projects</a
 		>
-		<a class="hover:text-red-500 transition-colors ease-in-out duration-150" href="/about">About</a>
+		<a class="hover:text-purple-500 transition-colors ease-in-out duration-150" href="/about"
+			>About</a
+		>
 	</nav>
 </div>
 

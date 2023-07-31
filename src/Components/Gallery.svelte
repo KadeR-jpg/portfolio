@@ -55,7 +55,7 @@
 			>
 				<img
 					use:motion
-					on:click={(event) => (inspo_text = summary)}
+					on:click={() => (inspo_text = summary)}
 					loading="lazy"
 					src={url}
 					alt={name}
