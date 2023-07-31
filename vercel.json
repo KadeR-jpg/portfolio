@@ -3,7 +3,7 @@
     "devCommand": "vite --port $PORT",
     "functions": {
         "api/main.go": {
-            "memory": 3008
+            "memory": 1024
         }
     },
     "rewrites": [
