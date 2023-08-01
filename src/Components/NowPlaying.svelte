@@ -4,26 +4,27 @@
 	import AsciiSpinner from './AsciiSpinner.svelte';
 	import { dev } from '$app/environment';
 	import { PUBLIC_DEV_URL } from '$env/static/public';
-
-	const base_url = dev ? PUBLIC_DEV_URL : `https://${process.env.VERCEL_URL}/`;
+	let VERCEL_URL: string;
 
 	let song: any;
 	let isLoading = false;
 	$: song;
 
+	onMount(async () => {
+		const response = await fetch(`${window.location.origin}/backend/env`);
+		const { REQ_VERCEL_URL } = await response.json();
+		VERCEL_URL = REQ_VERCEL_URL;
+		getNowPlaying();
+	});
 	async function getNowPlaying() {
+		const base_url = dev ? PUBLIC_DEV_URL : `https://${VERCEL_URL}/`;
 		isLoading = true;
-
 		song = await fetch(`${base_url}backend/now_playing`)
 			.then((res) => res.json())
 			.finally(() => {
 				isLoading = false;
 			});
 	}
-
-	onMount(async () => {
-		getNowPlaying();
-	});
 
 	setInterval(() => {
 		getNowPlaying();

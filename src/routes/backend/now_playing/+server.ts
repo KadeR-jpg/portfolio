@@ -21,6 +21,7 @@ export async function GET() {
 	}
 
 	const song = await res.json();
+
 	if (song.currently_playing_type === 'episode') {
 		return json({
 			body: {
