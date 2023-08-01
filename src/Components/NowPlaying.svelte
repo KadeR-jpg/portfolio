@@ -5,10 +5,8 @@
 	import { dev } from '$app/environment';
 	import { PUBLIC_DEV_URL } from '$env/static/public';
 
-	const base_url = dev ? PUBLIC_DEV_URL : `https://${process.env.VERCEL_URL}`;
-	console.log(base_url);
+	const base_url = dev ? PUBLIC_DEV_URL : `https://${process.env.VERCEL_URL}/`;
 
-	// const BASE_URL: string = dev ? PUBLIC_DEV_URL : PUBLIC_PROD_URL;
 	let song: any;
 	let isLoading = false;
 	$: song;
@@ -34,7 +32,7 @@
 
 <!-- {song ? 'hover:bg-[#1DB954] dark:hover:bg-[#1DB954]': ''} -->
 <div
-	class="group relative items-center bg-gray-100 transition-colors decoration-none dark:bg-gray-50/10 text-sm"
+	class="group relative items-center transition-colors decoration-none dark:bg-gray-50/10 text-sm"
 >
 	{#if !song}
 		<div class="flex flex-col rounded-3xl justify-center items-center text-2xl h-80 w-80">
@@ -46,7 +44,7 @@
 				<div class="flex flex-col justify-start">
 					{#key song.albumImageUrl}
 						<div
-							class="flex flex-col justify-center container relative my-4 border-2 border-black p-4 rounded-t-3xl rounded-b"
+							class="flex flex-col justify-center items-center relative my-4 border-2 border-black p-4 rounded-t-3xl rounded-b"
 						>
 							<p class="text-center text-xs pb-2 text-neutral-600">
 								Somewhere currently listening to
@@ -54,7 +52,7 @@
 							<img
 								src={song.albumImageUrl}
 								alt="album art"
-								class="album-art rounded-full w-40 md:w-56"
+								class="album-art flex rounded-full w-40 md:w-56"
 								style="animation: {song.isPlaying ? 'spin 50s infinite linear' : 'none'};"
 							/>
 						</div>

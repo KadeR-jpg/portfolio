@@ -90,7 +90,7 @@ puts(fib(4));`
 					Code:
 					<button
 						disabled
-						class="underline disabled:text-gray-300 disabled:cursor-not-allowed"
+						class="underline disabled:text-gray-300 "
 						on:click={() => (isOpen = !isOpen)}
 					>
 						{selectedName}<svg
