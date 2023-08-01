@@ -17,7 +17,7 @@
 		getNowPlaying();
 	});
 	async function getNowPlaying() {
-		const base_url = dev ? PUBLIC_DEV_URL : `https://${VERCEL_URL}/`;
+		const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
 		isLoading = true;
 		song = await fetch(`${base_url}backend/now_playing`)
 			.then((res) => res.json())

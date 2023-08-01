@@ -6,7 +6,7 @@ import {
 import { dev } from '$app/environment';
 import { PUBLIC_DEV_URL } from '$env/static/public';
 
-const base_url = dev ? PUBLIC_DEV_URL : `https://${process.env.VERCEL_URL}/`;
+const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
 
 const credentials: string = SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET;
 const encoded_credentials = Buffer.from(credentials).toString('base64');

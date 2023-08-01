@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit';
 import { dev } from '$app/environment';
 import { PUBLIC_DEV_URL } from '$env/static/public';
 
-const base_url = dev ? PUBLIC_DEV_URL : `https://${process.env.VERCEL_URL}/`;
+const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
 
 const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
 
