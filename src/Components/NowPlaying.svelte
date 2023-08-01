@@ -12,8 +12,8 @@
 
 	onMount(async () => {
 		const response = await fetch(`${window.location.origin}/backend/env`);
-		const { REQ_VERCEL_URL } = await response.json();
-		VERCEL_URL = REQ_VERCEL_URL;
+		const resp = await response.json();
+		VERCEL_URL = resp.VERCEL_URL;
 		getNowPlaying();
 	});
 	async function getNowPlaying() {
@@ -26,9 +26,9 @@
 			});
 	}
 
-	setInterval(() => {
-		getNowPlaying();
-	}, 5000);
+	// setInterval(() => {
+	// 	getNowPlaying();
+	// }, 5000);
 </script>
 
 <!-- {song ? 'hover:bg-[#1DB954] dark:hover:bg-[#1DB954]': ''} -->
