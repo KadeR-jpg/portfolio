@@ -85,38 +85,46 @@ puts(fib(4));`
 	<div class="flex relative font-mono w-full h-full">
 		<span class="absolute -bottom-1 left-1 rounded-2xl bg-neutral-700 w-full h-full" />
 		<div class=" bg-white z-10 rounded-2xl w-full h-full border-2 border-black flex flex-col">
-			<div class="relative border-b-2 border-black py-2 px-1 text-sm">
-				Code:
-				<button class="cursor-pointer underline" on:click={() => (isOpen = !isOpen)}>
-					{selectedName}<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-						class="w-3 h-3 m-0 p-0 inline-block {isOpen
-							? 'rotate-180'
-							: ''} transition-all duration-150 ease-in-out"
+			<div class="relative flex flex-row justify-between border-b-2 border-black py-2 px-1 text-sm">
+				<div class="flex">
+					Code:
+					<button
+						disabled
+						class="underline disabled:text-gray-300 disabled:cursor-not-allowed"
+						on:click={() => (isOpen = !isOpen)}
 					>
-						<path
-							fill-rule="evenodd"
-							d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-							clip-rule="evenodd"
-						/>
-					</svg>
-				</button>
-				{#if isOpen}
-					<div
-						class="absolute left-0 bg-white rounded-lg border border-black text-xs flex-nowrap overflow-hidden"
-					>
-						{#each codeItems as { name, content }}
-							<button
-								on:click={() => ((isOpen = !isOpen), (selectedName = name), (code = content))}
-								class=" px-3 py-2 w-full text-left text-gray-800 hover:bg-sky-200 content-start-['&nbsp']"
-							>
-								{name}
-							</button>
-						{/each}
-					</div>
-				{/if}
+						{selectedName}<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							class="w-3 h-3 m-0 p-0 inline-block {isOpen
+								? 'rotate-180'
+								: ''} transition-all duration-150 ease-in-out"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					</button>
+					{#if isOpen}
+						<div
+							class="absolute left-0 bg-white rounded-lg border border-black text-xs flex-nowrap overflow-hidden"
+						>
+							{#each codeItems as { name, content }}
+								<button
+									on:click={() => ((isOpen = !isOpen), (selectedName = name), (code = content))}
+									class=" px-3 py-2 w-full text-left text-gray-800 hover:bg-sky-200 content-start-['&nbsp']"
+								>
+									{name}
+								</button>
+							{/each}
+						</div>
+					{/if}
+				</div>
+				<p class="flex">🚧 Work in Progress 🚧</p>
+				<p class="flex" />
 			</div>
 			<CodeJar
 				class="px-1 scroll-smooth text-sm font-medium py-2 flex-1"
@@ -132,7 +140,8 @@ puts(fib(4));`
 						: ''}"
 				>
 					..src/scripts:&thinsp;<button
-						class=" text-green-600 underline"
+						disabled
+						class=" text-green-600 underline disabled:text-red-300 disabled:cursor-not-allowed"
 						on:click={() => sendData(code)}
 						>run
 					</button>

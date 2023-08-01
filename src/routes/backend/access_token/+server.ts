@@ -1,18 +1,16 @@
-import { dev } from '$app/environment';
 import {
 	SPOTIFY_CLIENT_ID,
 	SPOTIFY_CLIENT_SECRET,
 	SPOTIFY_REFRESH_TOKEN
 } from '$env/static/private';
-import { PUBLIC_DEV_URL, PUBLIC_PROD_URL } from '$env/static/public';
+import { dev } from '$app/environment';
+import { PUBLIC_DEV_URL } from '$env/static/public';
 
-const BASE_URL: string = dev ? PUBLIC_DEV_URL : PUBLIC_PROD_URL;
-console.log(BASE_URL);
-
+const base_url = dev ? PUBLIC_DEV_URL : `https://${process.env.VERCEL_URL}`;
 const credentials: string = SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET;
 const encoded_credentials = Buffer.from(credentials).toString('base64');
 import { json } from '@sveltejs/kit';
-const redirect_uri = BASE_URL;
+const redirect_uri = base_url;
 const token_endpoint = `https://accounts.spotify.com/api/token`;
 
 export const GET = async () => {

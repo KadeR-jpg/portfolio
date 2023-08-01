@@ -3,15 +3,20 @@
 	import { fade } from 'svelte/transition';
 	import AsciiSpinner from './AsciiSpinner.svelte';
 	import { dev } from '$app/environment';
-	import { PUBLIC_DEV_URL, PUBLIC_PROD_URL } from '$env/static/public';
-	const BASE_URL: string = dev ? PUBLIC_DEV_URL : PUBLIC_PROD_URL;
+	import { PUBLIC_DEV_URL } from '$env/static/public';
+
+	const base_url = dev ? PUBLIC_DEV_URL : `https://${process.env.VERCEL_URL}`;
+	console.log(base_url);
+
+	// const BASE_URL: string = dev ? PUBLIC_DEV_URL : PUBLIC_PROD_URL;
 	let song: any;
 	let isLoading = false;
 	$: song;
 
 	async function getNowPlaying() {
 		isLoading = true;
-		song = await fetch(BASE_URL + 'backend/now_playing')
+
+		song = await fetch(`${base_url}backend/now_playing`)
 			.then((res) => res.json())
 			.finally(() => {
 				isLoading = false;
@@ -32,9 +37,7 @@
 	class="group relative items-center bg-gray-100 transition-colors decoration-none dark:bg-gray-50/10 text-sm"
 >
 	{#if !song}
-		<div
-			class="flex flex-col rounded-3xl justify-center items-center text-2xl h-80 w-80 border-black border"
-		>
+		<div class="flex flex-col rounded-3xl justify-center items-center text-2xl h-80 w-80">
 			<AsciiSpinner {isLoading} />
 		</div>
 	{:else if song}

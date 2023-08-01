@@ -1,10 +1,13 @@
 import { json } from '@sveltejs/kit';
 import { dev } from '$app/environment';
-import { PUBLIC_DEV_URL, PUBLIC_PROD_URL } from '$env/static/public';
+import { PUBLIC_DEV_URL } from '$env/static/public';
+
+const base_url = dev ? PUBLIC_DEV_URL : `https://${process.env.VERCEL_URL}/`;
+
 const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
-const BASE_URL: string = dev ? PUBLIC_DEV_URL : PUBLIC_PROD_URL;
+
 export async function GET() {
-	const { access_token } = await fetch(BASE_URL + 'backend/access_token').then((res) => {
+	const { access_token } = await fetch(`${base_url}backend/access_token`).then((res) => {
 		return res.json();
 	});
 	const res = await fetch(now_playing_endpoint, {
