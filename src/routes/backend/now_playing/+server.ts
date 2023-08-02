@@ -48,7 +48,7 @@ export async function GET() {
 	};
 
 	return json({
-		headers: { headers },
+		headers,
 		body: { title, artist, album, isPlaying, albumImageUrl, songUrl, progress, duration }
 	});
 }
