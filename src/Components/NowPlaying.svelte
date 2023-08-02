@@ -4,21 +4,23 @@
 	import AsciiSpinner from './AsciiSpinner.svelte';
 	import { dev } from '$app/environment';
 	import { PUBLIC_DEV_URL } from '$env/static/public';
-	let VERCEL_URL: string;
+
+	const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
 
 	let song: any;
 	let isLoading = false;
 	$: song;
 
 	onMount(async () => {
-		const response = await fetch(`${window.location.origin}/backend/env`);
-		const resp = await response.json();
-		VERCEL_URL = resp.VERCEL_URL;
+		// const response = await fetch(`${window.location.origin}/backend/env`);
+		// const resp = await response.json();
+		// console.log(resp);
+		// VERCEL_URL = resp.VERCEL_URL;
 		getNowPlaying();
 	});
 	async function getNowPlaying() {
-		const base_url = dev ? PUBLIC_DEV_URL : `https://${VERCEL_URL}/`;
-		// const base_url = `http://localhost:3000/`;
+		// const base_url = dev ? PUBLIC_DEV_URL : `https://${VERCEL_URL}/`;
+		// const base_url = `https://kadepitsch.com/`;
 		isLoading = true;
 		song = await fetch(`${base_url}backend/now_playing`)
 			.then((res) => {
