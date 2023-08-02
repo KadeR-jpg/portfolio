@@ -13,7 +13,9 @@
 	onMount(async () => {
 		const response = await fetch(`${window.location.origin}/backend/env`);
 		const resp = await response.json();
-		VERCEL_URL = resp.VERCEL_URL;
+		console.log(resp);
+		
+		VERCEL_URL = resp;
 		getNowPlaying();
 	});
 	async function getNowPlaying() {
