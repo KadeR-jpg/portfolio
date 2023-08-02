@@ -4,7 +4,7 @@ export const GET = async () => {
 	const body = JSON.stringify(VERCEL_URL);
 	const headers = {
 		'content-type': 'application/json',
-		'access-control-allow-origin': 'https://kadepitsch.com/backend/now_playing'
+		'access-control-allow-origin': 'https://kadepitsch.com'
 	};
 	return new Response(body, { headers });
 };
