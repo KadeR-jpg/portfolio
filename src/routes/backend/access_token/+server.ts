@@ -19,6 +19,8 @@ export const GET = async () => {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
+			'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+			'Access-Control-Allow-Methods': 'GET, POST',
 			Authorization: 'Basic ' + encoded_credentials
 		},
 		body: new URLSearchParams({
