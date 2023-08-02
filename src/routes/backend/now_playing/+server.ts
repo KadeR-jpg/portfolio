@@ -41,14 +41,34 @@ export async function GET() {
 	const songUrl = song.item.external_urls.spotify;
 	const progress = song.progress_ms;
 	const duration = song.item.duration_ms;
-	const headers = {
-		'content-type': 'application/json',
-		'Access-Control-Allow-Origin': '*',
-		'Access-Control-Allow-Methods': 'GET, POST'
-	};
+	// const headers = {
+	// 	'Access-Control-Allow-Origin': '*',
+	// 	'Access-Control-Allow-Methods': 'GET, POST',
+	// 	'Access-Control-Allow-Headers':
+	// 		'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+	// 	'Content-Type': 'application/json'
+	// };
 
-	return json({
-		headers,
-		body: { title, artist, album, isPlaying, albumImageUrl, songUrl, progress, duration }
-	});
+	return new Response(
+		JSON.stringify({
+			title,
+			artist,
+			album,
+			isPlaying,
+			albumImageUrl,
+			songUrl,
+			progress,
+			duration
+		}),
+		{
+			status: 200,
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, POST',
+				'Access-Control-Allow-Headers':
+					'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+				'Content-Type': 'application/json'
+			}
+		}
+	);
 }

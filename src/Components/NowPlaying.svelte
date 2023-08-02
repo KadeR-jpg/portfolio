@@ -44,11 +44,11 @@
 		<div class="flex flex-col rounded-3xl justify-center items-center text-2xl h-80 w-80">
 			<AsciiSpinner {isLoading} />
 		</div>
-	{:else if song.body}
-		{#if song.body.isPlaying === true}
+	{:else if song}
+		{#if song.isPlaying === true}
 			<div class="flex flex-col text-xs md:text-base">
 				<div class="flex flex-col justify-start">
-					{#key song.body.albumImageUrl}
+					{#key song.albumImageUrl}
 						<div
 							class="flex flex-col justify-center items-center relative my-4 border-2 border-black p-4 rounded-t-3xl rounded-b"
 						>
@@ -56,35 +56,35 @@
 								Somewhere currently listening to
 							</p>
 							<img
-								src={song.body.albumImageUrl}
+								src={song.albumImageUrl}
 								alt="album art"
 								class="album-art flex rounded-full w-40 md:w-56"
-								style="animation: {song.body.isPlaying ? 'spin 50s infinite linear' : 'none'};"
+								style="animation: {song.isPlaying ? 'spin 50s infinite linear' : 'none'};"
 							/>
 						</div>
 					{/key}
 					<div class="grid grid-rows-1 font-plex">
-						{#key [song.body.album, song.body.artist, song.body.title]}
+						{#key [song.album, song.artist, song.title]}
 							<div class="border-2 border-black p-4 rounded-b-3xl rounded-t">
 								<a
-									href={song.body.songUrl}
+									href={song.songUrl}
 									rel="noopener noreferrer"
 									target="_blank"
-									title={song.body.artist}
+									title={song.artist}
 								>
 									<p
 										class="w-60 overflow-ellipsis hover:underline scroll-text whitespace-nowrap overflow-hidden text-xl"
 									>
-										{song.body.title}
+										{song.title}
 									</p>
 								</a>
 								<p
 									class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base"
 								>
-									{song.body.album}
+									{song.album}
 								</p>
 								<p class="text-sm text-neutral-400 whitespace-nowrap">
-									{song.body.artist}
+									{song.artist}
 								</p>
 							</div>
 						{/key}
@@ -94,13 +94,13 @@
 		{:else}
 			<div class="flex flex-col text-xs md:text-base">
 				<div class="flex flex-col justify-start">
-					{#key song.body.isPlaying}
+					{#key song.isPlaying}
 						<div
 							class="flex flex-col justify-center container relative my-4 border border-black p-4 rounded-t-3xl rounded-b"
 							in:fade
 						>
 							<img
-								src={song.body.albumImageUrl}
+								src={song.albumImageUrl}
 								alt="album art"
 								class="album-art rounded-full w-40 md:w-56 opacity-30 blur-sm hover:blur-none hover:opacity-100 transition-all duration-300 ease-in-out"
 								style="animation: none;"
@@ -111,27 +111,27 @@
 						</div>
 					{/key}
 					<div class="grid grid-rows-1 font-plex">
-						{#key song.body.isPlaying}
+						{#key song.isPlaying}
 							<div class="border border-black p-4 rounded-b-3xl rounded-t" in:fade>
 								<a
-									href={song.body.songUrl}
+									href={song.songUrl}
 									rel="noopener noreferrer"
 									target="_blank"
-									title={song.body.artist}
+									title={song.artist}
 								>
 									<p
 										class="w-60 overflow-ellipsis hover:underline scroll-text whitespace-nowrap overflow-hidden text-xl"
 									>
-										{song.body.title}
+										{song.title}
 									</p>
 								</a>
 								<p
 									class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base"
 								>
-									{song.body.album}
+									{song.album}
 								</p>
 								<p class="text-sm text-neutral-400 whitespace-nowrap">
-									{song.body.artist}
+									{song.artist}
 								</p>
 							</div>
 						{/key}
