@@ -43,7 +43,7 @@ export async function GET() {
 	const duration = song.item.duration_ms;
 	const headers = {
 		'content-type': 'application/json',
-		'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+		'Access-Control-Allow-Origin': '*',
 		'Access-Control-Allow-Methods': 'GET, POST'
 	};
 

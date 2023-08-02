@@ -4,7 +4,7 @@ export const GET = async () => {
 	const body = JSON.stringify('kadepitsch.com');
 	const headers = {
 		'content-type': 'application/json',
-		'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+		'Access-Control-Allow-Origin': '*',
 		'Access-Control-Allow-Methods': 'GET, POST'
 	};
 	return new Response(body, { headers });
