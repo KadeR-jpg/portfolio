@@ -13,22 +13,12 @@ export async function GET() {
 	const res = await fetch(now_playing_endpoint, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
-			'Access-Control-Allow-Origin': 'https://kadepitsch.com'
+			'access-control-allow-origin': 'https://kadepitsch.com'
 		}
 	});
 
-	// if (res.status === 204 || res.status > 400) {
-	// 	return json({ body: { isPlaying: false } });
-	// }
 	if (res.status === 204 || res.status > 400) {
-		return {
-			status: 200,
-			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Origin': 'https://kadepitsch.com'
-			},
-			body: JSON.stringify({ isPlaying: false })
-		};
+		return json({ body: { isPlaying: false } });
 	}
 
 	const song = await res.json();
@@ -51,22 +41,13 @@ export async function GET() {
 	const songUrl = song.item.external_urls.spotify;
 	const progress = song.progress_ms;
 	const duration = song.item.duration_ms;
-
-	return {
-		status: 200,
-		headers: {
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Origin': 'https://kadepitsch.com'
-		},
-		body: JSON.stringify({
-			title,
-			artist,
-			album,
-			isPlaying,
-			albumImageUrl,
-			songUrl,
-			progress,
-			duration
-		})
+	const headers = {
+		'content-type': 'application/json',
+		'access-control-allow-origin': 'https://kadepitsch.com'
 	};
+
+	return json({
+		headers: { headers },
+		body: { title, artist, album, isPlaying, albumImageUrl, songUrl, progress, duration }
+	});
 }

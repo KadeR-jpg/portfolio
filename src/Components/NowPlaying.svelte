@@ -13,24 +13,25 @@
 	onMount(async () => {
 		const response = await fetch(`${window.location.origin}/backend/env`);
 		const resp = await response.json();
-		console.log(resp);
-
-		VERCEL_URL = resp;
+		VERCEL_URL = resp.VERCEL_URL;
 		getNowPlaying();
 	});
 	async function getNowPlaying() {
-		const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
+		const base_url = dev ? PUBLIC_DEV_URL : `https://${VERCEL_URL}/`;
+		// const base_url = `http://localhost:3000/`;
 		isLoading = true;
 		song = await fetch(`${base_url}backend/now_playing`)
-			.then((res) => res.json())
+			.then((res) => {
+				return res.json();
+			})
 			.finally(() => {
 				isLoading = false;
 			});
 	}
 
-	// setInterval(() => {
-	// 	getNowPlaying();
-	// }, 5000);
+	setInterval(() => {
+		getNowPlaying();
+	}, 5000);
 </script>
 
 <!-- {song ? 'hover:bg-[#1DB954] dark:hover:bg-[#1DB954]': ''} -->
@@ -41,11 +42,11 @@
 		<div class="flex flex-col rounded-3xl justify-center items-center text-2xl h-80 w-80">
 			<AsciiSpinner {isLoading} />
 		</div>
-	{:else if song}
-		{#if song.isPlaying === true}
+	{:else if song.body}
+		{#if song.body.isPlaying === true}
 			<div class="flex flex-col text-xs md:text-base">
 				<div class="flex flex-col justify-start">
-					{#key song.albumImageUrl}
+					{#key song.body.albumImageUrl}
 						<div
 							class="flex flex-col justify-center items-center relative my-4 border-2 border-black p-4 rounded-t-3xl rounded-b"
 						>
@@ -53,35 +54,35 @@
 								Somewhere currently listening to
 							</p>
 							<img
-								src={song.albumImageUrl}
+								src={song.body.albumImageUrl}
 								alt="album art"
 								class="album-art flex rounded-full w-40 md:w-56"
-								style="animation: {song.isPlaying ? 'spin 50s infinite linear' : 'none'};"
+								style="animation: {song.body.isPlaying ? 'spin 50s infinite linear' : 'none'};"
 							/>
 						</div>
 					{/key}
 					<div class="grid grid-rows-1 font-plex">
-						{#key [song.album, song.artist, song.title]}
+						{#key [song.body.album, song.body.artist, song.body.title]}
 							<div class="border-2 border-black p-4 rounded-b-3xl rounded-t">
 								<a
-									href={song.songUrl}
+									href={song.body.songUrl}
 									rel="noopener noreferrer"
 									target="_blank"
-									title={song.artist}
+									title={song.body.artist}
 								>
 									<p
 										class="w-60 overflow-ellipsis hover:underline scroll-text whitespace-nowrap overflow-hidden text-xl"
 									>
-										{song.title}
+										{song.body.title}
 									</p>
 								</a>
 								<p
 									class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base"
 								>
-									{song.album}
+									{song.body.album}
 								</p>
 								<p class="text-sm text-neutral-400 whitespace-nowrap">
-									{song.artist}
+									{song.body.artist}
 								</p>
 							</div>
 						{/key}
@@ -91,13 +92,13 @@
 		{:else}
 			<div class="flex flex-col text-xs md:text-base">
 				<div class="flex flex-col justify-start">
-					{#key song.isPlaying}
+					{#key song.body.isPlaying}
 						<div
 							class="flex flex-col justify-center container relative my-4 border border-black p-4 rounded-t-3xl rounded-b"
 							in:fade
 						>
 							<img
-								src={song.albumImageUrl}
+								src={song.body.albumImageUrl}
 								alt="album art"
 								class="album-art rounded-full w-40 md:w-56 opacity-30 blur-sm hover:blur-none hover:opacity-100 transition-all duration-300 ease-in-out"
 								style="animation: none;"
@@ -108,27 +109,27 @@
 						</div>
 					{/key}
 					<div class="grid grid-rows-1 font-plex">
-						{#key song.isPlaying}
+						{#key song.body.isPlaying}
 							<div class="border border-black p-4 rounded-b-3xl rounded-t" in:fade>
 								<a
-									href={song.songUrl}
+									href={song.body.songUrl}
 									rel="noopener noreferrer"
 									target="_blank"
-									title={song.artist}
+									title={song.body.artist}
 								>
 									<p
 										class="w-60 overflow-ellipsis hover:underline scroll-text whitespace-nowrap overflow-hidden text-xl"
 									>
-										{song.title}
+										{song.body.title}
 									</p>
 								</a>
 								<p
 									class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base"
 								>
-									{song.album}
+									{song.body.album}
 								</p>
 								<p class="text-sm text-neutral-400 whitespace-nowrap">
-									{song.artist}
+									{song.body.artist}
 								</p>
 							</div>
 						{/key}
