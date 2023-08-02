@@ -14,11 +14,15 @@
     ],
     "headers": [
         {
-            "source": "/backend/now_playing",
+            "source": "/backend/(.*)",
             "headers": [
                 {
+                    "key": "Access-Control-Allow-Credentials",
+                    "value": "true"
+                },
+                {
                     "key": "Access-Control-Allow-Origin",
-                    "value": "https://www.kadepitsch.com"
+                    "value": "https://www.kadepitsch.com/"
                 },
                 {
                     "key": "Access-Control-Allow-Methods",

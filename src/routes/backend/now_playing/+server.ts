@@ -42,7 +42,9 @@ export async function GET() {
 	const progress = song.progress_ms;
 	const duration = song.item.duration_ms;
 	const headers = {
-		'content-type': 'application/json'
+		'content-type': 'application/json',
+		'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Methods': 'GET, POST'
 	};
 
 	return json({
