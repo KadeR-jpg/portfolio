@@ -14,7 +14,7 @@
 		const response = await fetch(`${window.location.origin}/backend/env`);
 		const resp = await response.json();
 		console.log(resp);
-		
+
 		VERCEL_URL = resp;
 		getNowPlaying();
 	});

@@ -17,8 +17,18 @@ export async function GET() {
 		}
 	});
 
+	// if (res.status === 204 || res.status > 400) {
+	// 	return json({ body: { isPlaying: false } });
+	// }
 	if (res.status === 204 || res.status > 400) {
-		return json({ body: { isPlaying: false } });
+		return {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': 'https://kadepitsch.com'
+			},
+			body: JSON.stringify({ isPlaying: false })
+		};
 	}
 
 	const song = await res.json();
@@ -42,5 +52,21 @@ export async function GET() {
 	const progress = song.progress_ms;
 	const duration = song.item.duration_ms;
 
-	return json({ title, artist, album, isPlaying, albumImageUrl, songUrl, progress, duration });
+	return {
+		status: 200,
+		headers: {
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Origin': 'https://kadepitsch.com'
+		},
+		body: JSON.stringify({
+			title,
+			artist,
+			album,
+			isPlaying,
+			albumImageUrl,
+			songUrl,
+			progress,
+			duration
+		})
+	};
 }
