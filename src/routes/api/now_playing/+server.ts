@@ -1,15 +1,41 @@
 import { json } from '@sveltejs/kit';
 import { dev } from '$app/environment';
 import { PUBLIC_DEV_URL } from '$env/static/public';
+import {
+	SPOTIFY_CLIENT_ID,
+	SPOTIFY_CLIENT_SECRET,
+	SPOTIFY_REFRESH_TOKEN
+} from '$env/static/private';
 
 const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
-
 const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
 
-export async function GET() {
-	const { access_token } = await fetch(`${base_url}api/access_token`).then((res) => {
-		return res.json();
+async function getSpotifyAccessToken(): Promise<string> {
+	const credentials = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString(
+		'base64'
+	);
+	const response = await fetch('https://accounts.spotify.com/api/token', {
+		method: 'POST',
+		headers: {
+			Authorization: `Basic ${credentials}`,
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: new URLSearchParams({
+			grant_type: 'refresh_token',
+			base_url,
+			client_id: SPOTIFY_CLIENT_ID,
+			client_secret: SPOTIFY_CLIENT_SECRET,
+			refresh_token: SPOTIFY_REFRESH_TOKEN
+		})
 	});
+
+	const data = await response.json();
+
+	return data.access_token;
+}
+
+export async function GET() {
+	const access_token = await getSpotifyAccessToken();
 	const res = await fetch(now_playing_endpoint, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
