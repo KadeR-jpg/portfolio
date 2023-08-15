@@ -3,7 +3,7 @@
     "devCommand": "vite --port $PORT",
     "headers": [
         {
-            "source": "https://kadepitsch.com/api/now_playing",
+            "source": "/api/(.*)",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Credentials",
