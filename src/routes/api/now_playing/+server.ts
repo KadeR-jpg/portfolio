@@ -39,7 +39,7 @@ export async function GET() {
 	const res = await fetch(now_playing_endpoint, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
-			'access-control-allow-origin': 'https://kadepitsch.com'
+			'Access-Control-Allow-Origin': 'https://www.kadepitsch.com'
 		}
 	});
 
