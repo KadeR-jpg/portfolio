@@ -1,20 +1,9 @@
 {
     "framework": "sveltekit",
     "devCommand": "vite --port $PORT",
-    "functions": {
-        "api/main.go": {
-            "memory": 1024
-        }
-    },
-    "rewrites": [
-        {
-            "source": "/api/(.*)",
-            "destination": "api/main"
-        }
-    ],
     "headers": [
         {
-            "source": "/backend/(.*)",
+            "source": "src/routes/api/(.*)",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Credentials",

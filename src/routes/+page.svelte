@@ -34,7 +34,7 @@
 	<title>Welcome</title>
 </svelte:head>
 <Header title="Home" />
-<article class="grid grid-cols-1 md:grid-cols-3 h-screen p-4">
+<article class="grid grid-cols-1 md:grid-cols-3 h-screen gap-4 p-4">
 	<div class="flex flex-col m-auto col-span-2">
 		<div class=" rounded-2xl border-2 border-neutral-400">
 			<h2 class="font-plex tracking-tighter text-4xl p-4">

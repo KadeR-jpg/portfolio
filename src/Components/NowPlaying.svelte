@@ -22,7 +22,7 @@
 		// const base_url = dev ? PUBLIC_DEV_URL : `https://${VERCEL_URL}/`;
 		// const base_url = `https://kadepitsch.com/`;
 		isLoading = true;
-		song = await fetch(`${base_url}backend/now_playing`)
+		song = await fetch(`${base_url}api/now_playing`)
 			.then((res) => {
 				return res.json();
 			})
@@ -99,15 +99,13 @@
 							class="flex flex-col justify-center container relative my-4 border border-black p-4 rounded-t-3xl rounded-b"
 							in:fade
 						>
+							<p class="text-center text-xs pb-2 text-neutral-600">I was listening to</p>
 							<img
 								src={song.albumImageUrl}
 								alt="album art"
-								class="album-art rounded-full w-40 md:w-56 opacity-30 blur-sm hover:blur-none hover:opacity-100 transition-all duration-300 ease-in-out"
+								class="album-art rounded-full w-40 md:w-56 opacity-30 blur-sm hover:blur-none hover:opacity-100 transition-all duration-150 ease-in-out"
 								style="animation: none;"
 							/>
-							<p class="absolute left-1/2 text-sm pb-2 font-thin text-neutral-800">
-								I was listening to
-							</p>
 						</div>
 					{/key}
 					<div class="grid grid-rows-1 font-plex">
@@ -139,6 +137,8 @@
 				</div>
 			</div>
 		{/if}
+	{:else}
+		<p>here</p>
 	{/if}
 </div>
 

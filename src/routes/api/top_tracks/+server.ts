@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit';
 const top_tracks_endpoint = `https://api.spotify.com/v1/me/top/tracks`;
 
 export async function GET() {
-	const { access_token } = await fetch('http://localhost:5173/backend/access_token/').then((res) =>
+	const { access_token } = await fetch('http://localhost:5173/api/access_token/').then((res) =>
 		res.json()
 	);
 

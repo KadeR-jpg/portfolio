@@ -7,7 +7,7 @@ const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
 const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
 
 export async function GET() {
-	const { access_token } = await fetch(`${base_url}backend/access_token`).then((res) => {
+	const { access_token } = await fetch(`${base_url}api/access_token`).then((res) => {
 		return res.json();
 	});
 	const res = await fetch(now_playing_endpoint, {
@@ -41,34 +41,6 @@ export async function GET() {
 	const songUrl = song.item.external_urls.spotify;
 	const progress = song.progress_ms;
 	const duration = song.item.duration_ms;
-	// const headers = {
-	// 	'Access-Control-Allow-Origin': '*',
-	// 	'Access-Control-Allow-Methods': 'GET, POST',
-	// 	'Access-Control-Allow-Headers':
-	// 		'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
-	// 	'Content-Type': 'application/json'
-	// };
 
-	return new Response(
-		JSON.stringify({
-			title,
-			artist,
-			album,
-			isPlaying,
-			albumImageUrl,
-			songUrl,
-			progress,
-			duration
-		}),
-		{
-			status: 200,
-			headers: {
-				'Access-Control-Allow-Origin': '*',
-				'Access-Control-Allow-Methods': 'GET, POST',
-				'Access-Control-Allow-Headers':
-					'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
-				'Content-Type': 'application/json'
-			}
-		}
-	);
+	return json({ title, artist, album, isPlaying, albumImageUrl, songUrl, progress, duration });
 }
