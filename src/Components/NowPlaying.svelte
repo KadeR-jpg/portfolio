@@ -1,22 +1,18 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import AsciiSpinner from './AsciiSpinner.svelte';
 	import { dev } from '$app/environment';
 	import { PUBLIC_DEV_URL } from '$env/static/public';
 
-	const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
+	const base_url = dev ? PUBLIC_DEV_URL : `https://www.kadepitsch.com/`;
 
 	let song: any;
 	let isLoading = false;
-	$: song;
+	let intervalId: Timer;
 	async function getNowPlaying() {
 		isLoading = true;
-		song = await fetch(`${base_url}api/now_playing`, {
-			headers: {
-				'Access-Control-Allow-Origin': '*'
-			}
-		})
+		song = await fetch(`${base_url}api/now_playing`)
 			.then((res) => {
 				return res.json();
 			})
@@ -27,11 +23,13 @@
 
 	onMount(async () => {
 		getNowPlaying();
+		intervalId = setInterval(() => {
+			getNowPlaying();
+		}, 5000);
 	});
-
-	setInterval(() => {
-		getNowPlaying();
-	}, 5000);
+	onDestroy(() => {
+		clearInterval(intervalId);
+	});
 </script>
 
 <div

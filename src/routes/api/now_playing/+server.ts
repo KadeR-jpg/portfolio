@@ -10,6 +10,17 @@ import {
 const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
 const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
 
+export async function OPTIONS(request) {
+	return {
+		status: 200,
+		headers: {
+			'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+			'Access-Control-Allow-Methods': 'GET, OPTIONS',
+			'Access-Control-Allow-Headers': 'Content-Type'
+		}
+	};
+}
+
 async function getSpotifyAccessToken(): Promise<string> {
 	const credentials = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString(
 		'base64'
@@ -67,5 +78,19 @@ export async function GET() {
 	const progress = song.progress_ms;
 	const duration = song.item.duration_ms;
 
-	return json({ title, artist, album, isPlaying, albumImageUrl, songUrl, progress, duration });
+	return json({
+		title,
+		artist,
+		album,
+		isPlaying,
+		albumImageUrl,
+		songUrl,
+		progress,
+		duration,
+		headers: {
+			'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+			'Access-Control-Allow-Methods': 'GET, OPTIONS',
+			'Access-Control-Allow-Headers': 'Content-Type'
+		}
+	});
 }
