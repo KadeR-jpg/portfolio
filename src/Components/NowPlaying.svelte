@@ -9,7 +9,7 @@
 
 	let song: any;
 	let isLoading = false;
-	let intervalId: Timer;
+	let intervalId: NodeJS.Timer;
 	async function getNowPlaying() {
 		isLoading = true;
 		song = await fetch(`${base_url}api/now_playing`)
