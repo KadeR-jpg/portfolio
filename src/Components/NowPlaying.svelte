@@ -10,19 +10,13 @@
 	let song: any;
 	let isLoading = false;
 	$: song;
-
-	onMount(async () => {
-		// const response = await fetch(`${window.location.origin}/backend/env`);
-		// const resp = await response.json();
-		// console.log(resp);
-		// VERCEL_URL = resp.VERCEL_URL;
-		getNowPlaying();
-	});
 	async function getNowPlaying() {
-		// const base_url = dev ? PUBLIC_DEV_URL : `https://${VERCEL_URL}/`;
-		// const base_url = `https://kadepitsch.com/`;
 		isLoading = true;
-		song = await fetch(`${base_url}api/now_playing`)
+		song = await fetch(`${base_url}api/now_playing`, {
+			headers: {
+				'Access-Control-Allow-Origin': '*'
+			}
+		})
 			.then((res) => {
 				return res.json();
 			})
@@ -31,12 +25,15 @@
 			});
 	}
 
+	onMount(async () => {
+		getNowPlaying();
+	});
+
 	setInterval(() => {
 		getNowPlaying();
 	}, 5000);
 </script>
 
-<!-- {song ? 'hover:bg-[#1DB954] dark:hover:bg-[#1DB954]': ''} -->
 <div
 	class="group relative items-center transition-colors decoration-none dark:bg-gray-50/10 text-sm"
 >

@@ -38,8 +38,7 @@ export async function GET() {
 	const access_token = await getSpotifyAccessToken();
 	const res = await fetch(now_playing_endpoint, {
 		headers: {
-			Authorization: `Bearer ${access_token}`,
-			'Access-Control-Allow-Origin': '*'
+			Authorization: `Bearer ${access_token}`
 		}
 	});
 
