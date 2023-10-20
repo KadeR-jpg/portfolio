@@ -40,10 +40,10 @@
 	<div class="flex flex-col">
 		<div class=" rounded-2xl border-2 border-neutral-400">
 			<h2 class="font-plex tracking-tighter text-4xl p-4">
-				My name is Kade Pitsch, I am an aspiring full-stack developer.
+				My name is Kade Pitsch, welcome to my portfolio.
 			</h2>
 			<section class="font-plex leading-normal text-base font-light pb-4 px-4 flex-1">
-				Welcome to my portfolio, featuring some of my projects that showcase my skills in both
+				Featuring some of my projects that showcase my skills in both
 				backend development and graphic design. I am deeply invested in both programming and design,
 				and I strive to create products that not only look appealing but also offer a seamless user
 				experience. I hope you enjoy your visit and learn more about my skills and interests as a
