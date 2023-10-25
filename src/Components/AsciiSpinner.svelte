@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	export let isLoading: boolean = false;
+	export let is_loading: boolean = false;
 	const spinnerCharacters = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 	let currentCharacter = 0;
 	let intervalId: NodeJS.Timeout;
@@ -27,11 +27,11 @@
 
 	// Simulate data fetching after 2 seconds
 	setTimeout(() => {
-		isLoading = false;
+		is_loading = false;
 	}, 2000);
 </script>
 
-{#if isLoading}
+{#if is_loading}
 	<span class="spinner">{spinnerCharacters[currentCharacter]}</span>
 {/if}
 

@@ -1,24 +1,43 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
-	import AsciiSpinner from './AsciiSpinner.svelte';
 	import { dev } from '$app/environment';
 	import { PUBLIC_DEV_URL } from '$env/static/public';
+	import MediaItem from './MediaItem.svelte';
 
 	const base_url = dev ? PUBLIC_DEV_URL : `https://www.kadepitsch.com/`;
 
-	let song: any;
-	let isLoading = false;
+	let current_audio: any;
+	let is_loading = false;
 	let intervalId: NodeJS.Timer;
+	let initial_load = true;
+	// async function getNowPlaying() {
+	// 	isLoading = true;
+	// 	song = await fetch(`${base_url}api/now_playing`)
+	// 		.then((res) => {
+	// 			return res.json();
+	// 		})
+	// 		.finally(() => {
+	// 			isLoading = false;
+	// 		});
+	// }
 	async function getNowPlaying() {
-		isLoading = true;
-		song = await fetch(`${base_url}api/now_playing`)
-			.then((res) => {
-				return res.json();
-			})
-			.finally(() => {
-				isLoading = false;
-			});
+		if (initial_load) {
+			is_loading = true;
+		}
+		try {
+			const response = await fetch(`${base_url}api/now_playing`);
+			current_audio = await response.json();
+			if (!current_audio.is_playing || !current_audio.is_listening) {
+				initial_load = true;
+			}
+		} catch (error) {
+			console.error('Error fetching now playing:', error);
+		} finally {
+			if (initial_load) {
+				is_loading = false;
+				initial_load = false;
+			}
+		}
 	}
 
 	onMount(async () => {
@@ -31,119 +50,24 @@
 		clearInterval(intervalId);
 	});
 </script>
-
-<div
-	class="group relative items-center transition-colors decoration-none dark:bg-gray-50/10 text-sm"
->
-	{#if !song}
-		<div class="flex flex-col rounded-3xl justify-center items-center text-2xl h-80 w-80">
-			<AsciiSpinner {isLoading} />
-		</div>
-	{:else if song}
-		{#if song.isPlaying === true}
-			<div class="flex flex-col text-xs md:text-base">
-				<div class="flex flex-col justify-start">
-					{#key song.albumImageUrl}
-						<div
-							class="flex flex-col justify-center items-center relative my-4 border-2 border-black p-4 rounded-t-3xl rounded-b"
-						>
-							<p class="text-center text-xs pb-2 text-neutral-600">
-								Somewhere currently listening to
-							</p>
-							<img
-								src={song.albumImageUrl}
-								alt="album art"
-								class="album-art flex rounded-full w-40 md:w-56"
-								style="animation: {song.isPlaying ? 'spin 50s infinite linear' : 'none'};"
-							/>
-						</div>
-					{/key}
-					<div class="grid grid-rows-1 font-plex">
-						{#key [song.album, song.artist, song.title]}
-							<div class="border-2 border-black p-4 rounded-b-3xl rounded-t">
-								<a
-									href={song.songUrl}
-									rel="noopener noreferrer"
-									target="_blank"
-									title={song.artist}
-								>
-									<p
-										class="w-60 overflow-ellipsis hover:underline scroll-text whitespace-nowrap overflow-hidden text-xl"
-									>
-										{song.title}
-									</p>
-								</a>
-								<p
-									class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base"
-								>
-									{song.album}
-								</p>
-								<p class="text-sm text-neutral-400 whitespace-nowrap">
-									{song.artist}
-								</p>
-							</div>
-						{/key}
-					</div>
-				</div>
-			</div>
-		{:else}
-			<div class="flex flex-col text-xs md:text-base">
-				<div class="flex flex-col justify-start">
-					{#key song.isPlaying}
-						<div
-							class="flex flex-col justify-center container relative my-4 border border-black p-4 rounded-t-3xl rounded-b"
-							in:fade
-						>
-							<p class="text-center text-xs pb-2 text-neutral-600">I was listening to</p>
-							<img
-								src={song.albumImageUrl}
-								alt="album art"
-								class="album-art rounded-full w-40 md:w-56 opacity-30 blur-sm hover:blur-none hover:opacity-100 transition-all duration-150 ease-in-out"
-								style="animation: none;"
-							/>
-						</div>
-					{/key}
-					<div class="grid grid-rows-1 font-plex">
-						{#key song.isPlaying}
-							<div class="border border-black p-4 rounded-b-3xl rounded-t" in:fade>
-								<a
-									href={song.songUrl}
-									rel="noopener noreferrer"
-									target="_blank"
-									title={song.artist}
-								>
-									<p
-										class="w-60 overflow-ellipsis hover:underline scroll-text whitespace-nowrap overflow-hidden text-xl"
-									>
-										{song.title}
-									</p>
-								</a>
-								<p
-									class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base"
-								>
-									{song.album}
-								</p>
-								<p class="text-sm text-neutral-400 whitespace-nowrap">
-									{song.artist}
-								</p>
-							</div>
-						{/key}
-					</div>
-				</div>
-			</div>
-		{/if}
-	{:else}
-		<p>here</p>
-	{/if}
-</div>
-
-<style>
-	@keyframes -global-spin {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
-	}
-</style>
+{#if current_audio && current_audio.is_playing === true}
+	<MediaItem
+		image_url={current_audio.albumImageUrl}
+		title={current_audio.title}
+		subtitle={current_audio.album}
+		subsubtitle={current_audio.artist}
+		link_url={current_audio.songUrl}
+		is_playing={current_audio.is_playing}
+		{is_loading}
+	/>
+	{:else if current_audio && current_audio.listeningToPodcast}
+		<MediaItem
+		{is_loading}
+		image_url={current_audio.cover_art}
+		title={current_audio.name}
+		subtitle={current_audio.description}
+		subsubtitle=""
+		link_url={current_audio.link}
+		is_playing={current_audio.isListening}
+	/>
+{/if}

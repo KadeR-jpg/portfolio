@@ -178,14 +178,6 @@
 					/>
 				</Tooltip>
 			</div>
-			<!-- <div class="w-1/2 md:w-1/4 bg-gray-200 rounded-full md:h-3.75">
-				<div
-						class="bg-green-600/80 text-xs font-medium text-green-900 text-center p-0.5 leading-none rounded-full"
-						style="width: {la.familiarity}%"
-					>
-						<p class=" md:inline-block">{la.familiarity}%</p>
-					</div>
-				</div> -->
 		{/each}
 	</div>
 </div>

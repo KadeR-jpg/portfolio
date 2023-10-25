@@ -35,14 +35,14 @@
 </svelte:head>
 <Header title="Home" />
 <article
-	class="grid grid-cols-1 md:grid-cols-2 place-items-center justify-between md:h-screen sm:gap-4 p-4"
+	class="grid grid-cols-1 md:grid-cols-6 place-items-center justify-items-center md:h-screen sm:gap-4 p-4"
 >
-	<div class="flex flex-col">
+	<div class="flex flex-col md:col-span-4">
 		<div class=" rounded-2xl border-2 border-neutral-400">
 			<h2 class="font-plex tracking-tighter text-4xl p-4">
 				My name is Kade Pitsch, welcome to my portfolio.
 			</h2>
-			<section class="font-plex leading-normal text-base font-light pb-4 px-4 flex-1">
+			<section class="font-plex leading-normal text-base md:text-xl font-light pb-4 px-4 flex-1">
 				Featuring some of my projects that showcase my skills in both
 				backend development and graphic design. I am deeply invested in both programming and design,
 				and I strive to create products that not only look appealing but also offer a seamless user
@@ -111,7 +111,7 @@
 		</div>
 	</div>
 	<!-- <CodeBlock /> -->
-	<div class="grid justify-end">
-		<NowPlaying />
-	</div>
+		<div class="col-span-2">
+			<NowPlaying />
+		</div>
 </article>

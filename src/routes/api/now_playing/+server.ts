@@ -8,9 +8,9 @@ import {
 } from '$env/static/private';
 
 const base_url = dev ? PUBLIC_DEV_URL : `https://kadepitsch.com/`;
-const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
+const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing?additional_types=track%2Cepisode`;
 
-export async function OPTIONS(request) {
+export async function OPTIONS() {
 	return {
 		status: 200,
 		headers: {
@@ -36,7 +36,7 @@ async function getSpotifyAccessToken(): Promise<string> {
 			base_url,
 			client_id: SPOTIFY_CLIENT_ID,
 			client_secret: SPOTIFY_CLIENT_SECRET,
-			refresh_token: SPOTIFY_REFRESH_TOKEN
+			refresh_token: SPOTIFY_REFRESH_TOKEN,
 		})
 	});
 
@@ -60,14 +60,22 @@ export async function GET() {
 	const song = await res.json();
 
 	if (song.currently_playing_type === 'episode') {
+		const name = song.item.name;
+		const cover_art = song.item.show.images[1].url;
+		const link = song.item.external_urls.spotify;
+		const description = song.item.show.description;
+		const isListening = song.is_playing;
 		return json({
-			body: {
-				listeningToPodcast: true
-			}
+				listeningToPodcast: true,
+				isListening,
+				name,
+				cover_art,
+				link,
+				description,
 		});
 	}
 	// TODO add a feature to show what podcast is playing, probably add another endpoint and will have to update the scopes
-	const isPlaying = song.is_playing;
+	const is_playing = song.is_playing;
 	const title = song.item.name;
 	const artist: string = song.item.artists
 		.map((_artist: { name: string }) => _artist.name)
@@ -77,12 +85,11 @@ export async function GET() {
 	const songUrl = song.item.external_urls.spotify;
 	const progress = song.progress_ms;
 	const duration = song.item.duration_ms;
-
 	return json({
 		title,
 		artist,
 		album,
-		isPlaying,
+		is_playing,
 		albumImageUrl,
 		songUrl,
 		progress,
