@@ -19,11 +19,15 @@
 			<div
 				class="flex flex-col justify-center items-center relative my-4 border-2 border-black p-4 rounded-t-3xl rounded-b"
 			>
-				<p class="text-center text-xs pb-2 text-neutral-600">Somewhere currently listening to</p>
+				<p class="text-center text-xs pb-2 text-neutral-600">
+					{is_playing ? 'Somewhere currently listening to' : 'I was listening to'}
+				</p>
 				<img
 					src={image_url}
 					alt="album art"
-					class="album-art flex rounded-full w-40 md:w-56"
+					class="album-art flex rounded-full w-40 md:w-56 {is_playing
+						? ''
+						: 'blur-sm opacity-20 hover:blur-none hover:opacity-100'} transition-all duration-300 ease-in"
 					style="animation: {is_playing ? 'spin 50s infinite linear' : 'none'};"
 				/>
 			</div>
@@ -36,9 +40,7 @@
 							{title}
 						</p>
 					</a>
-					<p
-						class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base"
-					>
+					<p class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base">
 						{subtitle}
 					</p>
 					<p class="text-sm text-neutral-400 whitespace-nowrap text-ellipsis">
@@ -58,20 +60,5 @@
 		to {
 			transform: rotate(360deg);
 		}
-	}
-	@keyframes marquee {
-		0% {
-			transform: translateX(100%);
-		}
-		100% {
-			transform: translateX(-100%);
-		}
-	}
-
-	.marquee {
-		display: block;
-		white-space: nowrap;
-		overflow: hidden;
-		animation: marquee 10s linear infinite;
 	}
 </style>

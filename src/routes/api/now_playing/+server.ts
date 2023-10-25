@@ -36,7 +36,7 @@ async function getSpotifyAccessToken(): Promise<string> {
 			base_url,
 			client_id: SPOTIFY_CLIENT_ID,
 			client_secret: SPOTIFY_CLIENT_SECRET,
-			refresh_token: SPOTIFY_REFRESH_TOKEN,
+			refresh_token: SPOTIFY_REFRESH_TOKEN
 		})
 	});
 
@@ -57,43 +57,31 @@ export async function GET() {
 		return json({ body: { isPlaying: false } });
 	}
 
-	const song = await res.json();
-
-	if (song.currently_playing_type === 'episode') {
-		const name = song.item.name;
-		const cover_art = song.item.show.images[1].url;
-		const link = song.item.external_urls.spotify;
-		const description = song.item.show.description;
-		const isListening = song.is_playing;
-		return json({
-				listeningToPodcast: true,
-				isListening,
-				name,
-				cover_art,
-				link,
-				description,
-		});
+	const data = await res.json();
+	const is_playing = data.is_playing;
+	const title = data.item.name;
+	const link = data.item.external_urls.spotify;
+	let podcast: boolean;
+	let artist, album, description, cover_art;
+	if (data.currently_playing_type === 'episode') {
+		podcast = true;
+		cover_art = data.item.show.images[0].url;
+		description = data.item.show.publisher;
+	} else {
+		podcast = false;
+		cover_art = data.item.album.images[0].url;
+		artist = data.item.artists.map((_artists: { name: string }) => _artists.name).join(', ');
+		album = data.item.album.name;
 	}
-	// TODO add a feature to show what podcast is playing, probably add another endpoint and will have to update the scopes
-	const is_playing = song.is_playing;
-	const title = song.item.name;
-	const artist: string = song.item.artists
-		.map((_artist: { name: string }) => _artist.name)
-		.join(', ');
-	const album = song.item.album.name;
-	const albumImageUrl = song.item.album.images[0].url;
-	const songUrl = song.item.external_urls.spotify;
-	const progress = song.progress_ms;
-	const duration = song.item.duration_ms;
 	return json({
+		podcast,
 		title,
+		description,
 		artist,
 		album,
 		is_playing,
-		albumImageUrl,
-		songUrl,
-		progress,
-		duration,
+		cover_art,
+		link,
 		headers: {
 			'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
 			'Access-Control-Allow-Methods': 'GET, OPTIONS',
@@ -101,3 +89,30 @@ export async function GET() {
 		}
 	});
 }
+// 	if (song.currently_playing_type === 'episode') {
+// 		const name = song.item.name;
+// 		const cover_art = song.item.show.images[1].url;
+// 		const link = song.item.external_urls.spotify;
+// 		const description = song.item.show.description;
+// 		const is_playing = song.is_playing;
+// 		return json({
+// 				listeningToPodcast: true,
+// 				is_playing,
+// 				name,
+// 				cover_art,
+// 				link,
+// 				description,
+// 		});
+// 	}
+// 	const is_playing = song.is_playing;
+// 	const title = song.item.name;
+// 	const artist: string = song.item.artists
+// 		.map((_artist: { name: string }) => _artist.name)
+// 		.join(', ');
+// 	const album = song.item.album.name;
+// 	const albumImageUrl = song.item.album.images[0].url;
+// 	const songUrl = song.item.external_urls.spotify;
+// 	const progress = song.progress_ms;
+// 	const duration = song.item.duration_ms;
+
+// }
