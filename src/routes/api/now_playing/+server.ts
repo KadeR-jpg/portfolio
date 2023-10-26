@@ -66,6 +66,7 @@ export async function GET() {
 	if (data.currently_playing_type === 'episode') {
 		podcast = true;
 		cover_art = data.item.show.images[0].url;
+		artist = data.item.show.name;
 		description = data.item.show.publisher;
 	} else {
 		podcast = false;

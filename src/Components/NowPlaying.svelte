@@ -7,9 +7,9 @@
 	interface StoredAudioInfo {}
 	const base_url = dev ? PUBLIC_DEV_URL : `https://www.kadepitsch.com/`;
 	let current_audio: any;
+	let initial_load = true;
 	let is_loading = false;
 	let intervalId: NodeJS.Timer;
-	let initial_load = true;
 	let last_playing_item: any;
 
 	async function getNowPlaying() {
@@ -20,7 +20,7 @@
 			const response = await fetch(`${base_url}api/now_playing`);
 			current_audio = await response.json();
 			mediaItemProps = getMediaItemProps();
-			if (!current_audio.is_playing || !current_audio.is_listening) {
+			if (!current_audio.is_playing) {
 				initial_load = true;
 			}
 		} catch (error) {
@@ -44,13 +44,11 @@
 				is_playing: current_audio.is_playing
 			};
 		} else if (current_audio && current_audio.podcast) {
-			console.log(current_audio);
-
 			return {
 				image_url: current_audio.cover_art,
 				title: current_audio.title,
-				subtitle: last_playing_item.podcast ? last_playing_item.description : '',
-				subsubtitle: last_playing_item.podcast ? '' : last_playing_item.artist,
+				subtitle: current_audio.artist,
+				subsubtitle: current_audio.description,
 				link_url: last_playing_item.link,
 				is_playing: current_audio.is_playing
 			};
@@ -58,8 +56,10 @@
 		return {
 			image_url: last_playing_item.cover_art,
 			title: last_playing_item.title,
-			subtitle: last_playing_item.podcast ? last_playing_item.description : last_playing_item.album,
-			subsubtitle: last_playing_item.podcast ? '' : last_playing_item.artist,
+			subtitle: last_playing_item.artist,
+			subsubtitle: last_playing_item.podcast
+				? last_playing_item.description
+				: last_playing_item.artist,
 			link_url: last_playing_item.link,
 			is_playing: false
 		};
