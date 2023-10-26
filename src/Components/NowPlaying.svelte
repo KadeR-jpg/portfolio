@@ -54,19 +54,15 @@
 				link_url: last_playing_item.link,
 				is_playing: current_audio.is_playing
 			};
-		} else if (last_playing_item) {
-			return {
-				image_url: last_playing_item.cover_art,
-				title: last_playing_item.title,
-				subtitle: last_playing_item.podcast
-					? last_playing_item.description
-					: last_playing_item.album,
-				subsubtitle: last_playing_item.podcast ? '' : last_playing_item.artist,
-				link_url: last_playing_item.link,
-				is_playing: false
-			};
 		}
-		return null;
+		return {
+			image_url: last_playing_item.cover_art,
+			title: last_playing_item.title,
+			subtitle: last_playing_item.podcast ? last_playing_item.description : last_playing_item.album,
+			subsubtitle: last_playing_item.podcast ? '' : last_playing_item.artist,
+			link_url: last_playing_item.link,
+			is_playing: false
+		};
 	}
 
 	onMount(async () => {

@@ -43,7 +43,7 @@
 					<p class="overflow-hidden whitespace-nowrap text-neutral-700 text-ellipsis text-base">
 						{subtitle}
 					</p>
-					<p class="text-sm text-neutral-400 whitespace-nowrap text-ellipsis">
+					<p class="text-sm text-neutral-400 whitespace-nowrap text-ellipsis overflow-hidden">
 						{subsubtitle}
 					</p>
 				</div>
