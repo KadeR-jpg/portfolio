@@ -17,21 +17,21 @@
 			title: 'Spectis',
 			bps: [
 				'Another site built with Svelte and tailwind',
-				'More of a full-stack app with utilizing <strong>Supabase</strong> as the backend',
+				'More of a full-stack app, utilizing <strong>Supabase</strong> as the backend',
 				'on Supabase to store user data'
 			],
 			blobColor: 'from-orange-300',
 			link: 'https://github.com/KadeR-jpg/Cashier-Line-Sim'
 		},
 		{
-			title: 'Prime Reacts',
+			title: 'Beartooth Repair',
 			bps: [
-				'Side project built for a streamer',
-				'the correlation between energy level and song popularity. I selected specific',
-				'elements and trends from the data to examine this relationship'
+				'Website built for a heavy equipment repair company',
+				'Utilized Sveltekit and TailwindCSS to build out the site',
+				'Contact form is utilizing the Sendgrid API'
 			],
 			blobColor: 'from-fuchsia-300',
-			link: 'https://github.com/KadeR-jpg/data-mining-final/tree/main/FinalProject'
+			link: 'https://www.beartoothrepair.contact/'
 		},
 		{
 			title: 'Blackjack Game',
@@ -41,7 +41,7 @@
 				'Used Sveltekit and TailwindCSS'
 			],
 			blobColor: 'from-rose-300',
-			link: 'https://github.com/KadeR-jpg/Cashier-Line-Sim'
+			link: 'https://simple-blackjack-kade.vercel.app/'
 		}
 	];
 </script>

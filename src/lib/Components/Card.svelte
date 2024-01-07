@@ -16,6 +16,7 @@
 		<h2 class="text-lg font-semibold md:text-2xl">{title}</h2>
 		<a
 			href={link}
+			target="_blank"
 			class="bg-transparent {blobColor} group inline-flex items-center rounded-3xl via-stone-100 px-3 py-1 text-stone-600 ring-0 transition-all duration-150 ease-in hover:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] hover:ring-1 hover:ring-stone-300 active:ring-1 active:ring-stone-300"
 		>
 			<ArrowTr />View Project
