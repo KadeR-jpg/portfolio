@@ -69,7 +69,7 @@
 			<Logo />
 			<div class="font-xs flex flex-col text-right font-vt text-stone-500">
 				<p>Last Edited</p>
-				<p>06/01/2024</p>
+				<p>07/01/2024</p>
 			</div>
 		</div>
 	</header>
