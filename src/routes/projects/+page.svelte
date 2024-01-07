@@ -14,16 +14,6 @@
 			link: 'https://github.com/KadeR-jpg/portfolio'
 		},
 		{
-			title: 'Spectis',
-			bps: [
-				'Another site built with Svelte and tailwind',
-				'More of a full-stack app, utilizing <strong>Supabase</strong> as the backend',
-				'on Supabase to store user data'
-			],
-			blobColor: 'from-orange-300',
-			link: 'https://github.com/KadeR-jpg/Cashier-Line-Sim'
-		},
-		{
 			title: 'Beartooth Repair',
 			bps: [
 				'Website built for a heavy equipment repair company',
@@ -32,6 +22,16 @@
 			],
 			blobColor: 'from-fuchsia-300',
 			link: 'https://www.beartoothrepair.contact/'
+		},
+		{
+			title: 'Prime Reacts',
+			bps: [
+				'Another site built with Svelte, tailwind and <strong>Supabase</strong> as the backend',
+				'Full stack app using supabase and discord for user authentication.',
+				'Utilizing MySQL to store user data'
+			],
+			blobColor: 'from-orange-300',
+			link: 'https://github.com/KadeR-jpg/prime-reacts'
 		},
 		{
 			title: 'Blackjack Game',
