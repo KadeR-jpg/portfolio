@@ -64,10 +64,9 @@
 		visit and learn more about my skills and interests as a developer and designer.
 	</section>
 	<p class="font-manrope">
-		I grew up on a farm in Montana. I applied to Montana State University two months before
-		highschool graduation, luckily i was accepted. I did not really know what i wanted my major to
-		be. I remember my counselor suggesting that computer science would not be a good fit for me
-		because I was "bad at math". Obviously I chose computer science and math eventually became my
+		I grew up on a farm in Montana. I had no idea what I wanted to do after highschool so I applied to MSU in Bozeman. I did not know what i wanted my major to
+		be either but I remember my counselor suggesting that computer science would not be a good fit for me
+		because I was not great at math. I chose computer science anyway and math became my
 		favorite subject.
 	</p>
 	<h2 class="text-pretty text-right font-hedvig text-2xl">
