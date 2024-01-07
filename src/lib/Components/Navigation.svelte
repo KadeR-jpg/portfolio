@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../app.postcss';
+	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 	let open = false;
 	let onClick = () => {
@@ -11,9 +11,9 @@
 <div class="flex flex-col">
 	<button
 		on:click={onClick}
-		class="flex md:hidden
-                            cursor-pointer
-                            justify-end align-middle"
+		class="flex cursor-pointer
+                            justify-end
+                            align-middle md:hidden"
 	>
 		<svg
 			class:open
@@ -37,13 +37,13 @@
 
 	{#if open}
 		<nav
-			class="flex flex-row absolute right-0 pt-4 top-8 justify-end"
+			class="absolute right-0 top-8 flex flex-row justify-end pt-4"
 			transition:fly={{ x: 100, duration: 200 }}
 		>
 			<div
-				class="flex flex-col gap-4 absolute border-2 border-black rounded-2xl bg-purple-300 right-0 p-5 text-2xl text-black shadow-lg text-end"
+				class="absolute right-0 flex flex-col gap-4 rounded-2xl border-2 border-black bg-purple-300 p-5 text-end text-2xl text-black shadow-lg"
 			>
-				<a href="/">Home</a>
+				<a aria-current="page" href="/">Home</a>
 				<a href="/resume">Resume</a>
 				<a href="/projects">Projects</a>
 				<!-- <a class="text-2xl font-light text-white text-end" href="/about">About</a> -->
@@ -52,22 +52,36 @@
 	{/if}
 </div>
 
-<div class="md:flex flex-row justify-center place-items-center hidden font-plex">
-	<nav class="flex gap-6 pr-4 pt-2 text-2xl">
-		<a class="hover:text-purple-500 transition-colors ease-in-out duration-150" href="/">Home</a>
-		<a class="hover:text-purple-500 transition-colors ease-in-out duration-150" href="/resume"
-			>Resume</a
+<div class="hidden font-manrope md:flex">
+	<nav class="flex gap-2 text-2xl font-semibold text-neutral-800">
+		<a
+			class="rounded p-2 ring-1 ring-black transition-all duration-150 ease-in-out hover:ring-fuchsia-500"
+			aria-current={$page.url.pathname === '/' ? 'page' : undefined}
+			href="/"
 		>
-		<a class="hover:text-purple-500 transition-colors ease-in-out duration-150" href="/projects"
-			>Projects</a
+			Home
+		</a>
+		<a
+			class="rounded p-2 ring-1 ring-black transition-all duration-150 ease-in-out hover:ring-sky-500"
+			href="/resume"
 		>
-		<a class="hover:text-purple-500 transition-colors ease-in-out duration-150" href="/about"
-			>About</a
+			Resume
+		</a>
+		<a
+			class="rounded p-2 ring-1 ring-black transition-all duration-150 ease-in-out hover:ring-orange-500"
+			href="/projects"
 		>
+			Projects
+		</a>
 	</nav>
 </div>
 
 <style>
+	a[aria-current='page']::before {
+		content: '';
+		width: 0;
+		view-transition-name: active-page;
+	}
 	:root {
 		--transition-duration: 200ms;
 	}

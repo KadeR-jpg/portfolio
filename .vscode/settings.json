@@ -1,11 +1,15 @@
 {
-    "cSpell.words": [
-        "builtins",
-        "ENDOF",
-        "Hashable",
-        "LESSGREATER",
-        "STARTOF",
-        "stmts",
-        "wiig"
-    ]
+	"cSpell.words": [
+		"builtins",
+		"ENDOF",
+		"Hashable",
+		"LESSGREATER",
+		"STARTOF",
+		"stmts",
+		"wiig"
+	],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[svelte]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }

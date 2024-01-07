@@ -62,12 +62,12 @@ export async function GET() {
 	const title = data.item.name;
 	const link = data.item.external_urls.spotify;
 	let podcast: boolean;
-	let artist, album, description, cover_art;
+	let artist, host, album, name, cover_art, publisher;
 	if (data.currently_playing_type === 'episode') {
 		podcast = true;
 		cover_art = data.item.show.images[0].url;
-		artist = data.item.show.name;
-		description = data.item.show.publisher;
+		host = data.item.show.name;
+		publisher = data.item.show.publisher;
 	} else {
 		podcast = false;
 		cover_art = data.item.album.images[0].url;
@@ -76,9 +76,11 @@ export async function GET() {
 	}
 	return json({
 		podcast,
+		name,
+		publisher,
 		title,
-		description,
 		artist,
+		host,
 		album,
 		is_playing,
 		cover_art,

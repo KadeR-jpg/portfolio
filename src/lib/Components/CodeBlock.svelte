@@ -82,22 +82,23 @@ puts(fib(4));`
 </script>
 
 {#if CodeJar}
-	<div class="flex relative font-mono w-full h-full">
-		<span class="absolute -bottom-1 left-1 rounded-2xl bg-neutral-700 w-full h-full" />
-		<div class=" bg-white z-10 rounded-2xl w-full h-full border-2 border-black flex flex-col">
-			<div class="relative flex flex-row justify-between border-b-2 border-black py-2 px-1 text-sm">
+	<div class="relative flex h-full w-full font-mono">
+		<span class="absolute -bottom-1 left-1 h-full w-full rounded-2xl bg-neutral-700" />
+		<div class=" z-10 flex h-full w-full flex-col rounded-2xl border-2 border-black bg-white">
+			<div class="relative flex flex-row justify-between border-b-2 border-black px-1 py-2 text-sm">
 				<div class="flex">
 					Code:
 					<button
 						disabled
-						class="underline disabled:text-gray-300 "
+						class="underline disabled:text-gray-300"
 						on:click={() => (isOpen = !isOpen)}
 					>
-						{selectedName}<svg
+						{selectedName}
+						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
-							class="w-3 h-3 m-0 p-0 inline-block {isOpen
+							class="m-0 inline-block h-3 w-3 p-0 {isOpen
 								? 'rotate-180'
 								: ''} transition-all duration-150 ease-in-out"
 						>
@@ -110,12 +111,12 @@ puts(fib(4));`
 					</button>
 					{#if isOpen}
 						<div
-							class="absolute left-0 bg-white rounded-lg border border-black text-xs flex-nowrap overflow-hidden"
+							class="absolute left-0 flex-nowrap overflow-hidden rounded-lg border border-black bg-white text-xs"
 						>
 							{#each codeItems as { name, content }}
 								<button
 									on:click={() => ((isOpen = !isOpen), (selectedName = name), (code = content))}
-									class=" px-3 py-2 w-full text-left text-gray-800 hover:bg-sky-200 content-start-['&nbsp']"
+									class=" content-start-['&nbsp'] w-full px-3 py-2 text-left text-gray-800 hover:bg-sky-200"
 								>
 									{name}
 								</button>
@@ -127,23 +128,25 @@ puts(fib(4));`
 				<p class="flex" />
 			</div>
 			<CodeJar
-				class="px-1 scroll-smooth text-sm font-medium py-2 flex-1"
+				class="flex-1 scroll-smooth px-1 py-2 text-sm font-medium"
 				syntax="javascript"
 				{highlight}
 				addClosing={true}
 				bind:value={code}
 			/>
-			<div class="text-mono py-2 text-xs w-full flex flex-col border-t-2 border-black">
+			<div class="text-mono flex w-full flex-col border-t-2 border-black py-2 text-xs">
 				<div
-					class="px-1 inline-flex w-full scroll-smooth {output.length > 5
+					class="inline-flex w-full scroll-smooth px-1 {output.length > 5
 						? 'overflow-y-scroll'
 						: ''}"
 				>
-					..src/scripts:&thinsp;<button
+					..src/scripts:&thinsp;
+					<button
 						disabled
-						class=" text-green-600 underline disabled:text-red-300 disabled:cursor-not-allowed"
+						class=" text-green-600 underline disabled:cursor-not-allowed disabled:text-red-300"
 						on:click={() => sendData(code)}
-						>run
+					>
+						run
 					</button>
 
 					<AsciiSpinner {isLoading} />

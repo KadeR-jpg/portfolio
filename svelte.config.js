@@ -10,15 +10,12 @@ const config = {
 	preprocess: [
 		preprocess({
 			postcss: {
-				plugins: [
-					tailwind,
-					autoprefixer,
-				]
-			},
-		}),
+				plugins: [tailwind, autoprefixer]
+			}
+		})
 	],
 	kit: {
-		adapter: adapter(),
+		adapter: adapter()
 	}
 };
 

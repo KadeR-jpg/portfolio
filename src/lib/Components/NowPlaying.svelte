@@ -9,7 +9,7 @@
 	let current_audio: any;
 	let initial_load = true;
 	let is_loading = false;
-	let intervalId: NodeJS.Timer;
+	let intervalId: NodeJS.Timeout;
 	let last_playing_item: any;
 
 	async function getNowPlaying() {
@@ -43,22 +43,23 @@
 				link_url: current_audio.link,
 				is_playing: current_audio.is_playing
 			};
-		} else if (current_audio && current_audio.podcast) {
+		} else if (current_audio.is_playing && current_audio.podcast) {
 			return {
 				image_url: current_audio.cover_art,
 				title: current_audio.title,
-				subtitle: current_audio.artist,
-				subsubtitle: current_audio.description,
+				subtitle: current_audio.host,
+				subsubtitle: current_audio.publisher,
 				link_url: last_playing_item.link,
 				is_playing: current_audio.is_playing
 			};
 		}
+		console.log(last_playing_item);
 		return {
 			image_url: last_playing_item.cover_art,
 			title: last_playing_item.title,
-			subtitle: last_playing_item.artist,
+			subtitle: last_playing_item.podcast ? last_playing_item.host : last_playing_item.album,
 			subsubtitle: last_playing_item.podcast
-				? last_playing_item.description
+				? last_playing_item.publisher
 				: last_playing_item.artist,
 			link_url: last_playing_item.link,
 			is_playing: false
