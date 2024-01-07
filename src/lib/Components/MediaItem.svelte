@@ -14,7 +14,7 @@
 </script>
 
 {#if is_loading}
-	<div class="flex h-80 w-80 flex-col items-center justify-center rounded-3xl text-2xl">
+	<div class="flex h-80 max-w-80 flex-col items-center justify-center rounded-3xl text-2xl">
 		<AsciiSpinner {is_loading} />
 	</div>
 {:else if is_playing}
@@ -27,7 +27,7 @@
 				in:blur
 				src={image_url}
 				alt="cover art"
-				class="w-60 rounded-full ring-1 ring-neutral-800 {is_playing
+				class=" w-40 rounded-full ring-1 ring-neutral-800 md:w-60 {is_playing
 					? ''
 					: 'opacity-20 blur-sm hover:opacity-100 hover:blur-none'} transition-all duration-300 ease-in"
 				style="animation: spin 100s infinite linear;"

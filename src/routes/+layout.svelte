@@ -109,23 +109,8 @@
 		>
 			<slot />
 		</div>
-		<aside class="place-items-center">
+		<aside class="hidden place-items-start md:place-items-center">
 			<NowPlaying />
 		</aside>
 	</div>
 </body>
-
-<style>
-	/* body {
-		background-image: radial-gradient(
-			at center top,
-			rgb(148, 163, 184),
-			rgb(17, 94, 89),
-			rgb(15, 23, 42)
-		);
-	} */
-	.pushable {
-		-webkit-tap-highlight-color: transparent;
-		user-select: none;
-	}
-</style>
