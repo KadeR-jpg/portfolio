@@ -109,7 +109,7 @@
 		>
 			<slot />
 		</div>
-		<aside class="hidden place-items-start md:place-items-center">
+		<aside class="hidden place-items-start md:place-items-center md:grid">
 			<NowPlaying />
 		</aside>
 	</div>
