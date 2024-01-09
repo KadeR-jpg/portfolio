@@ -60,13 +60,13 @@
 <Toaster />
 <body class="h-full bg-stone-100 dark:bg-stone-800">
 	<header
-		class="font-xs flex bg-stone-100 font-vt text-xs leading-none text-stone-500 md:text-base dark:bg-stone-800"
+		class="font-xs flex justify-center border bg-stone-100 p-2 font-vt text-xs leading-none text-stone-500 md:text-base dark:bg-stone-800"
 	>
-		<div class="flex flex-col">
+		<div class="absolute left-0 top-0">
 			<p>Last Edited</p>
 			<p>{currentDate}</p>
 		</div>
-		<a href="/" class="m-auto">
+		<a href="/" class="self-center">
 			<Logo />
 		</a>
 	</header>
