@@ -69,11 +69,11 @@
 </svelte:head>
 
 <div class="flex flex-col gap-2 font-hedvig">
-	<div class="prose prose-stone">
+	<div class="prose prose-stone dark:prose-invert">
 		<div class="w-full items-baseline justify-between md:inline-flex">
-			<h1 class="text-3xl">Professional Experience</h1>
+			<h1 class="text-3xl dark:font-medium">Professional Experience</h1>
 			<a
-				class="bg-transparent from-pink-300 via-stone-100 font-semibold hover:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]"
+				class="bg-transparent from-pink-300 via-stone-100 font-semibold hover:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] dark:from-pink-800 dark:via-stone-800 dark:font-medium dark:text-stone-400"
 				target="_blank"
 				href={resume}
 			>
@@ -81,14 +81,13 @@
 			</a>
 		</div>
 		<p class="font-manrope">
-			Software engineer <mark>currently looking for a new role.</mark>
+			Software engineer <mark class="dark:bg-amber-300">currently looking for a new role.</mark>
 			I have 3 years of experience specializing in backend development and web development with Svelte/SvelteKit.
 			I have professional experience in Python, TypeScript and JavaScript, as well as soft skills like
 			teamwork and problem-solving. I am Looking for opportunities to leverage my skills in a challenging
 			role.
 		</p>
 	</div>
-	<hr class="not-prose w-1/2 self-center border-dotted" />
 	<div class="flex flex-col gap-4">
 		{#each jobs_array as job}
 			<Card cardType="Job" {...job} />

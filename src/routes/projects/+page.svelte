@@ -51,8 +51,8 @@
 </svelte:head>
 
 <main class="flex flex-col">
-	<div class="prose prose-stone text-left">
-		<h1 class="font-hedvig text-3xl">Development Projects</h1>
+	<div class="prose prose-stone text-left dark:prose-invert">
+		<h1 class="font-hedvig text-3xl dark:font-medium">Development Projects</h1>
 		<p class="pb-4 font-manrope">
 			Here is a list of some of the things that i have worked on that i liked enough to show off.
 			Links are to their github repo
@@ -61,7 +61,7 @@
 	<div class="flex flex-col gap-4">
 		{#each projList as proj}
 			<Card cardType="Project" {...proj} />
-			<hr />
+			<hr class="dark:border-stone-600" />
 		{/each}
 	</div>
 </main>

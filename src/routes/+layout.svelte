@@ -32,6 +32,7 @@
 			href: '/resume'
 		}
 	];
+	let currentDate = new Date().toLocaleDateString();
 	injectSpeedInsights();
 	onMount(() => {
 		const interval = setInterval(() => {
@@ -57,33 +58,29 @@
 	<link rel="icon" href={favicon} type="image/svg" />
 </svelte:head>
 <Toaster />
-<body class="bg-stone-100">
-	<header class="grid bg-stone-100 p-2">
-		<div class="flex flex-row justify-between text-xs md:text-base">
-			<div class="flex flex-col font-vt text-stone-500">
-				<p>Kade Pitsch</p>
-				{#if datetime}
-					<p>{datetime}</p>
-				{/if}
-			</div>
-			<Logo />
-			<div class="font-xs flex flex-col text-right font-vt text-stone-500">
-				<p>Last Edited</p>
-				<p>07/01/2024</p>
-			</div>
+<body class="h-full bg-stone-100 dark:bg-stone-800">
+	<header
+		class="font-xs flex bg-stone-100 font-vt text-xs leading-none text-stone-500 md:text-base dark:bg-stone-800"
+	>
+		<div class="flex flex-col">
+			<p>Last Edited</p>
+			<p>{currentDate}</p>
 		</div>
+		<a href="/" class="m-auto">
+			<Logo />
+		</a>
 	</header>
 	<div class="grid md:grid-cols-6">
 		<nav
-			class=" sticky top-0 flex h-fit flex-row justify-evenly border-b bg-stone-100 py-2 font-hedvig md:justify-start md:border-0"
+			class=" sticky top-0 flex h-fit flex-row justify-evenly border-b bg-stone-100 py-2 font-hedvig md:justify-start md:border-0 dark:bg-stone-800"
 		>
 			<div
-				class="flex flex-row gap-2 px-2 text-xs font-semibold text-stone-700 antialiased md:flex-col md:gap-2 md:text-lg"
+				class="flex flex-row gap-2 px-2 text-xs font-light text-stone-700 antialiased md:flex-col md:gap-2 md:text-lg dark:text-stone-100"
 			>
 				{#each links as { title, highlightColor, href }}
 					<a
 						{href}
-						class="self-start rounded-full bg-transparent {highlightColor} via-stone-100 hover:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]"
+						class="self-start rounded-full bg-transparent {highlightColor} via-stone-100 hover:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] dark:via-stone-800"
 					>
 						{title}
 					</a>

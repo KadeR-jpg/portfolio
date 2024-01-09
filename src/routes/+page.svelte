@@ -53,25 +53,24 @@
 <svelte:head>
 	<title>Welcome</title>
 </svelte:head>
-<article id="main" class="prose prose-stone py-4">
-	<h2 class="text-pretty font-hedvig text-3xl font-bold">
+<article id="main" class="prose prose-stone py-4 dark:prose-invert">
+	<h2 class="text-pretty font-hedvig text-3xl font-bold dark:font-medium">
 		My name is Kade Pitsch, welcome to my portfolio.
 	</h2>
 	<section class="text-pretty font-manrope">
 		Featuring some of my projects that showcase my skills in both backend development and graphic
-		design. I am deeply invested in both programming and design, and I strive to create products
-		that not only look appealing but also offer a seamless user experience. I hope you enjoy your
-		visit and learn more about my skills and interests as a developer and designer.
+		design. I am deeply invested in both programming and design, and I strive to create websites
+		that not only look appealing but also offer a seamless user experience.
 	</section>
 	<p class="font-manrope">
-		I grew up on a farm in Montana. I had no idea what I wanted to do after highschool so I applied to MSU in Bozeman. I did not know what i wanted my major to
-		be either but I remember my counselor suggesting that computer science would not be a good fit for me
-		because I was not great at math. I chose computer science anyway and math became my
-		favorite subject.
+		I grew up on a farm in Montana. I had no idea what I wanted to do after highschool so I applied
+		to MSU in Bozeman. I did not know what i wanted my major to be either but I remember my
+		counselor suggesting that computer science would not be a good fit for me because I was not
+		great at math. I chose computer science anyway and math became my favorite subject.
 	</p>
-	<h2 class="text-pretty text-right font-hedvig text-2xl">
+	<h2 class="text-pretty font-hedvig text-2xl dark:font-medium">
 		I graduated in May of 2021 with a B.S of <mark
-			class="bg-transparent bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-300 via-violet-50 to-transparent"
+			class="bg-transparent bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-300 via-violet-50 to-transparent dark:from-violet-800 dark:via-stone-800 dark:text-stone-100"
 		>
 			Computer Science.
 		</mark>

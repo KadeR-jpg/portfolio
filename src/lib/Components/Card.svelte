@@ -13,11 +13,11 @@
 	<div
 		class="grid grid-flow-col-dense items-baseline justify-between font-hedvig md:inline-flex md:w-full"
 	>
-		<h2 class="text-lg font-semibold md:text-2xl">{title}</h2>
+		<h2 class="text-lg font-semibold md:text-2xl dark:text-stone-300">{title}</h2>
 		<a
 			href={link}
 			target="_blank"
-			class="bg-transparent {blobColor} group inline-flex items-center rounded-3xl via-stone-100 px-3 py-1 text-stone-600 ring-0 transition-all duration-150 ease-in hover:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] hover:ring-1 hover:ring-stone-300 active:ring-1 active:ring-stone-300"
+			class="bg-transparent {blobColor} group inline-flex items-center rounded-3xl via-stone-100 px-3 py-1 text-stone-600 ring-0 transition-all duration-150 ease-in hover:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] hover:ring-1 hover:ring-stone-300 active:ring-1 active:ring-stone-300 dark:via-stone-800 dark:text-stone-300 dark:hover:ring-stone-600"
 		>
 			<ArrowTr />View Project
 		</a>
@@ -26,11 +26,13 @@
 	<div
 		class="grid-flow-col-dense items-baseline justify-between font-hedvig md:inline-flex md:w-full md:items-baseline md:justify-between"
 	>
-		<h2 class="text-lg font-semibold md:text-2xl">{title}</h2>
-		<p class="text-xs text-stone-500 md:text-sm">{fromTo}</p>
+		<h2 class="text-lg font-semibold md:text-2xl dark:font-semibold dark:text-stone-300">
+			{title}
+		</h2>
+		<p class="text-xs text-stone-500 md:text-sm dark:text-stone-300">{fromTo}</p>
 	</div>
 {/if}
-<ul class="prose prose-stone font-manrope">
+<ul class="prose prose-stone font-manrope dark:prose-invert">
 	{#each bps as bp}
 		<li class="list-outside list-disc text-pretty text-xs md:text-sm">{@html bp}</li>
 	{/each}

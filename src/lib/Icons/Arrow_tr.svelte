@@ -2,7 +2,7 @@
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 16 16"
 	fill="currentColor"
-	class="h-4 w-4 fill-black/60 transition-all duration-100 ease-in group-hover:rotate-45"
+	class="h-4 w-4 fill-black/60 transition-all duration-100 ease-in group-hover:rotate-45 dark:fill-stone-100"
 >
 	<path
 		fill-rule="evenodd"

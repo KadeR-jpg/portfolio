@@ -20,14 +20,14 @@
 {:else if is_playing}
 	<div class="grid max-w-80 overflow-hidden md:text-base">
 		<div class="relative my-4 flex flex-col items-center p-4">
-			<p class="pb-2 text-center text-xs text-stone-400">
+			<p class="pb-2 text-center text-xs text-stone-400 dark:text-stone-400">
 				{is_playing ? 'Somewhere currently listening to' : 'I was listening to'}
 			</p>
 			<img
 				in:blur
 				src={image_url}
 				alt="cover art"
-				class=" w-40 rounded-full ring-1 ring-neutral-800 md:w-60 {is_playing
+				class=" w-40 rounded-full ring-1 ring-stone-800 md:w-60 dark:ring-stone-100 {is_playing
 					? ''
 					: 'opacity-20 blur-sm hover:opacity-100 hover:blur-none'} transition-all duration-300 ease-in"
 				style="animation: spin 100s infinite linear;"
@@ -37,15 +37,19 @@
 			<div class="px-4 pb-4">
 				<a href={link_url} rel="noopener noreferrer" target="_blank" {title}>
 					<p
-						class="line-clamp-1 text-ellipsis text-pretty font-hedvig text-lg font-semibold text-stone-700 underline"
+						class="line-clamp-1 text-ellipsis text-pretty font-hedvig text-lg font-semibold text-stone-700 underline dark:text-stone-300"
 					>
 						{title}
 					</p>
 				</a>
-				<p class=" line-clamp-1 font-manrope text-sm font-semibold text-stone-500">
+				<p
+					class=" line-clamp-1 font-manrope text-sm font-semibold text-stone-500 dark:text-stone-400"
+				>
 					{subtitle}
 				</p>
-				<p class="line-clamp-1 font-manrope text-xs font-semibold text-stone-400">
+				<p
+					class="line-clamp-1 font-manrope text-xs font-semibold text-stone-400 dark:text-stone-500"
+				>
 					{subsubtitle}
 				</p>
 			</div>
