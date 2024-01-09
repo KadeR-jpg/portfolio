@@ -1,53 +1,10 @@
 <script lang="ts">
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
-	// import toast from 'svelte-french-toast';
 
 	inject({ mode: dev ? 'development' : 'production' });
-	const links = [
-		{
-			link: '/home',
-			title: '/home',
-			style: `bg-gradient-to-br`
-		},
-		{
-			link: '/projects',
-			title: '/projects',
-			style: `bg-gradient-to-bl`
-		},
-		{
-			link: '/home',
-			title: '/blog',
-			style: `bg-gradient-to-tr`
-		},
-		{
-			link: '/home',
-			title: '/tools',
-			style: `bg-gradient-to-tl`
-		}
-	];
 
 	// import CodeBlock from '../Components/CodeBlock.svelte';
-	// function setClipboard(text: string) {
-	// 	var type = 'text/plain';
-	// 	var blob = new Blob([text], { type });
-	// 	var data = [new ClipboardItem({ [type]: blob })];
-	// 	navigator.clipboard
-	// 		.write(data)
-	// 		.then(function () {
-	// 			toast.success('Copied', {
-	// 				style: 'border: 2px solid #000; color: #000;',
-	// 				position: 'bottom-center',
-	// 				iconTheme: {
-	// 					primary: '#000',
-	// 					secondary: '#fff'
-	// 				}
-	// 			});
-	// 		})
-	// 		.catch(() => {
-	// 			toast.error('error');
-	// 		});
-	// }
 </script>
 
 <svelte:head>

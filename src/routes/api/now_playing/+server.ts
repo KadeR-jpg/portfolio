@@ -92,30 +92,3 @@ export async function GET() {
 		}
 	});
 }
-// 	if (song.currently_playing_type === 'episode') {
-// 		const name = song.item.name;
-// 		const cover_art = song.item.show.images[1].url;
-// 		const link = song.item.external_urls.spotify;
-// 		const description = song.item.show.description;
-// 		const is_playing = song.is_playing;
-// 		return json({
-// 				listeningToPodcast: true,
-// 				is_playing,
-// 				name,
-// 				cover_art,
-// 				link,
-// 				description,
-// 		});
-// 	}
-// 	const is_playing = song.is_playing;
-// 	const title = song.item.name;
-// 	const artist: string = song.item.artists
-// 		.map((_artist: { name: string }) => _artist.name)
-// 		.join(', ');
-// 	const album = song.item.album.name;
-// 	const albumImageUrl = song.item.album.images[0].url;
-// 	const songUrl = song.item.external_urls.spotify;
-// 	const progress = song.progress_ms;
-// 	const duration = song.item.duration_ms;
-
-// }
