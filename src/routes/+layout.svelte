@@ -7,7 +7,6 @@
 	import NowPlaying from '../lib/Components/NowPlaying.svelte';
 	import Arrow_tr from '$lib/Icons/Arrow_tr.svelte';
 	import Logo from '$lib/Icons/Logo.svelte';
-	import { onMount } from 'svelte';
 
 	const links = [
 		{
@@ -31,14 +30,7 @@
 			href: '/resume'
 		}
 	];
-	let currentDate = new Date().toLocaleDateString();
 	injectSpeedInsights();
-	onMount(() => {
-		const interval = setInterval(() => {
-			datetime = new Date().toLocaleTimeString();
-		}, 1000);
-		return () => clearInterval(interval);
-	});
 	onNavigate((navigation) => {
 		// @ts-ignore
 		if (!document.startViewTransition) return;
@@ -63,7 +55,7 @@
 	>
 		<div class="absolute left-2 top-0">
 			<p>Last Edited</p>
-			<p>{currentDate}</p>
+			<p>09/01/24</p>
 		</div>
 		<a href="/" class="self-center">
 			<Logo />
