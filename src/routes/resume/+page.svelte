@@ -4,6 +4,13 @@
 	import resume from '$lib/2023_resume.pdf';
 	let jobs_array: CardProps[] = [
 		{
+			title: 'Software Engineer - Conduit Resources',
+			fromTo: 'Feb 2024 - Current',
+			bps: [
+				"Working on some new logging analytics"
+			]
+		},
+		{
 			title: 'Python Developer - Florida Blue',
 			fromTo: 'October 2022 - June 2023',
 			bps: [
@@ -81,9 +88,9 @@
 			</a>
 		</div>
 		<p class="font-manrope">
-			Software engineer <mark class="dark:bg-amber-300">currently looking for a new role.</mark>
-			I have 3 years of experience specializing in backend development and web development with Svelte/SvelteKit.
-			I am Looking for opportunities to leverage my skills in a challenging role.
+			Currently a software engineer at <a href="https://www.conduitresources.com/"><mark style="background-color: #C3D69B;">Conduit Resources</mark></a> working with C#.
+			Previous to that I have had 3 years of experience specializing in backend development with Python
+			and web development with Svelte/SvelteKit.
 		</p>
 	</div>
 	<div class="flex flex-col gap-4">
