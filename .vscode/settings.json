@@ -4,6 +4,7 @@
 		"ENDOF",
 		"Hashable",
 		"LESSGREATER",
+		"mdsvex",
 		"STARTOF",
 		"stmts",
 		"wiig"
@@ -11,5 +12,6 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	},
+	"editor.snippetSuggestions": "inline"
 }

@@ -79,14 +79,9 @@
 	onDestroy(() => {
 		clearInterval(intervalId);
 	});
-	$: {
-		if (
-			(current_audio && current_audio.is_playing) ||
-			(current_audio && current_audio.is_listening)
-		) {
-			last_playing_item = current_audio;
-			localStorage.setItem('last_playing_item', JSON.stringify(current_audio));
-		}
+	$: if (current_audio?.is_playing || current_audio?.is_listening) {
+		last_playing_item = current_audio;
+		localStorage.setItem('last_playing_item', JSON.stringify(current_audio));
 	}
 </script>
 

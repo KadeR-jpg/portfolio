@@ -6,9 +6,7 @@
 		{
 			title: 'Software Engineer - Conduit Resources',
 			fromTo: 'Feb 2024 - Current',
-			bps: [
-				"Working on some new logging analytics"
-			]
+			bps: ['Working on some new logging analytics']
 		},
 		{
 			title: 'Python Developer - Florida Blue',
@@ -88,9 +86,8 @@
 			</a>
 		</div>
 		<p class="font-manrope">
-			Currently a software engineer at <a href="https://www.conduitresources.com/"><mark style="background-color: #C3D69B;">Conduit Resources</mark></a> working with C#.
-			Previous to that I have had 3 years of experience specializing in backend development with Python
-			and web development with Svelte/SvelteKit.
+			Currently looking for new opportunities as a full-stack developer with 3 years of experience
+			specializing in backend development with Python, C# and web development with Svelte/SvelteKit.
 		</p>
 	</div>
 	<div class="flex flex-col gap-4">

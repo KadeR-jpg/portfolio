@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
+	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import favicon from '$lib/Icons/favicon.svg';
@@ -7,6 +8,7 @@
 	import NowPlaying from '../lib/Components/NowPlaying.svelte';
 	import Arrow_tr from '$lib/Icons/Arrow_tr.svelte';
 	import Logo from '$lib/Icons/Logo.svelte';
+	import ThemeToggle from '../lib/Components/ThemeToggle.svelte';
 
 	const links = [
 		{
@@ -51,12 +53,8 @@
 <Toaster />
 <body class="h-full bg-stone-100 dark:bg-stone-800">
 	<header
-		class="font-xs flex justify-center bg-stone-100 p-2 font-vt text-xs leading-none text-stone-500 md:text-base dark:bg-stone-800"
+		class="font-xs flex justify-center bg-stone-100 p-2 font-manrope text-xs text-stone-500 md:text-base dark:bg-stone-800"
 	>
-		<div class="absolute left-2 top-0">
-			<p>Last Edited</p>
-			<p>09/01/24</p>
-		</div>
 		<a href="/" class="self-center">
 			<Logo />
 		</a>
@@ -90,11 +88,10 @@
 				>
 					<Arrow_tr />LinkedIn
 				</a>
+				<ThemeToggle />
 			</div>
 		</nav>
-		<div
-			class="grid place-content-center justify-center justify-items-center gap-1 px-4 py-1 md:col-span-4"
-		>
+		<div class="grid justify-items-center px-4 pt-4 md:col-span-4 md:pt-0">
 			<slot />
 		</div>
 		<aside class="hidden place-items-start md:grid">

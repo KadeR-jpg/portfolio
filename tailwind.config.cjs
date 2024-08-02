@@ -1,7 +1,7 @@
 const config = {
 	mode: 'jit',
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-
+	darkMode: 'selector',
 	theme: {
 		extend: {
 			scale: {
@@ -10,14 +10,15 @@ const config = {
 			fontFamily: {
 				manrope: ['Manrope', 'sans-serif'],
 				plex: ['IBM Plex Sans', 'sans'],
-				'plex-mono': ['IBM Plex Mono', 'sans'],
+				'DM-Mono': ['Dm Mono', 'sans'],
 				hedvig: ['Hedvig Letters Serif', 'sans'],
 				vt: ['VT323']
 			}
 		}
 	},
 
-	plugins: [require('@tailwindcss/typography')]
+	plugins: [require('@tailwindcss/typography')
+	]
 };
 
 module.exports = config;

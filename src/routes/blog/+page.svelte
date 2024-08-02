@@ -1,4 +1,20 @@
-<article id="main" class="prose prose-stone py-4 dark:prose-invert">
-	<h2 class="text-center font-hedvig text-3xl font-bold">Blog W.I.P</h2>
-	<section class="text-center font-manrope">Coming soon</section>
-</article>
+<script lang="ts">
+	import { formatDate } from '$lib/utils';
+	import PostPreview from '$lib/Components/PostPreview.svelte';
+	import * as config from '$lib/config';
+
+	export let data;
+</script>
+
+<svelte:head>
+	<title>{config.title}</title>
+</svelte:head>
+
+<!-- Posts -->
+<section class="flex h-full w-full max-w-2xl flex-col">
+	<ul class="flex flex-col gap-4">
+		{#each data.posts as post}
+			<PostPreview {...post} date={formatDate(post.date)} link={post.slug} />
+		{/each}
+	</ul>
+</section>

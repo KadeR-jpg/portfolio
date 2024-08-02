@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
+	import ThemeToggle from './ThemeToggle.svelte';
 	let open = false;
 	let onClick = () => {
 		open = !open;
