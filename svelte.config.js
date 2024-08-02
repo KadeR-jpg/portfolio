@@ -41,6 +41,10 @@ const config = {
 	],
 
 	kit: {
+		alias: {
+			'$components': 'src/lib/Components',
+			'$utils': 'src/lib/utils.ts',
+		},
 		adapter: adapter()
 	},
 

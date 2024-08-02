@@ -5,7 +5,7 @@
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import favicon from '$lib/Icons/favicon.svg';
 	import { Toaster } from 'svelte-french-toast';
-	import NowPlaying from '../lib/Components/NowPlaying.svelte';
+	import NowPlaying from '$components/NowPlaying.svelte';
 	import Arrow_tr from '$lib/Icons/Arrow_tr.svelte';
 	import Logo from '$lib/Icons/Logo.svelte';
 	import ThemeToggle from '../lib/Components/ThemeToggle.svelte';
