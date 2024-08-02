@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
-	import { tagClasses } from '$lib/Types/PostType.ts';
 	import PostNavigation from '$lib/Components/PostNavigation.svelte';
 	export let data;
 	$: ({ content, meta, prevPost, nextPost } = data);
