@@ -4,7 +4,6 @@
 	import { PUBLIC_DEV_URL } from '$env/static/public';
 	import MediaItem from './MediaItem.svelte';
 
-	interface StoredAudioInfo {}
 	const base_url = dev ? PUBLIC_DEV_URL : `https://www.kadepitsch.com/`;
 	let current_audio: any;
 	let initial_load = true;
@@ -83,6 +82,7 @@
 		last_playing_item = current_audio;
 		localStorage.setItem('last_playing_item', JSON.stringify(current_audio));
 	}
+	console.log(mediaItemProps);
 </script>
 
 {#if mediaItemProps}

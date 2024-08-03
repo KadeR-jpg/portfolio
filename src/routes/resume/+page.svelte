@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CardProps } from '$lib/types/CardProps';
 	import Card from '$lib/Components/Card.svelte';
-	import resume from '$lib/2023_resume.pdf';
+	import resume from '$lib/2024_resume.pdf';
 	let jobs_array: CardProps[] = [
 		{
 			title: 'Software Engineer - Conduit Resources',
