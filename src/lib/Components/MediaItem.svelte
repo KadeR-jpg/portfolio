@@ -25,6 +25,7 @@
 		aria-label={isExpanded ? 'Collapse' : 'Expand'}
 	>
 		{isExpanded ? 'Collapse' : 'Expand'}
+
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 20 20"
@@ -46,9 +47,9 @@
 		{:else if is_playing}
 			<div class="grid max-w-80 overflow-hidden md:text-base" transition:blur>
 				<div class="relative my-4 flex flex-col items-center p-4">
-					<p class="pb-2 text-center text-xs text-stone-400 dark:text-stone-400">
+					<!-- <p class="pb-2 text-center text-xs text-stone-400 dark:text-stone-400">
 						{is_playing ? 'Somewhere currently listening to' : 'I was listening to'}
-					</p>
+					</p> -->
 					<img
 						in:blur
 						src={image_url}

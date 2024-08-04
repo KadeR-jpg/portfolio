@@ -1,8 +1,6 @@
 <script lang="ts">
 	export let prevPost: { slug: string } | null = null;
 	export let nextPost: { slug: string } | null = null;
-
-	console.log(prevPost);
 </script>
 
 <nav class="not-prose inline-flex w-full justify-between text-sm *:p-1">

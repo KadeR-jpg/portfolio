@@ -52,7 +52,6 @@
 				is_playing: current_audio.is_playing
 			};
 		}
-		console.log(last_playing_item);
 		return {
 			image_url: last_playing_item.cover_art,
 			title: last_playing_item.title,
@@ -82,7 +81,6 @@
 		last_playing_item = current_audio;
 		localStorage.setItem('last_playing_item', JSON.stringify(current_audio));
 	}
-	console.log(mediaItemProps);
 </script>
 
 {#if mediaItemProps}

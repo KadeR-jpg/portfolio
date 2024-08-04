@@ -8,7 +8,7 @@ let highlighter = null;
 async function getHighlighter() {
 	if (!highlighter) {
 		highlighter = await createHighlighter({
-			themes: ['rose-pine-dawn', 'rose-pine-moon'],
+			themes: ['catppuccin-mocha', 'rose-pine-moon'],
 			langs: ['javascript', 'typescript', 'go']
 		});
 		await highlighter.loadLanguage('javascript', 'typescript');
@@ -32,7 +32,7 @@ const config = {
 				highlighter: async (code, lang = 'text') => {
 					const highlighter = await getHighlighter();
 					const html = escapeSvelte(
-						highlighter.codeToHtml(code, { lang, theme: 'rose-pine-dawn' })
+						highlighter.codeToHtml(code, { lang, theme: 'catppuccin-mocha' })
 					);
 					return `{@html \`${html}\` }`;
 				}
