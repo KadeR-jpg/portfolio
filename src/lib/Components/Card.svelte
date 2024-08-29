@@ -24,7 +24,7 @@
 	</div>
 {:else if cardType === 'Job'}
 	<div
-		class="grid-flow-col-dense items-baseline justify-between font-hedvig md:inline-flex md:w-full md:items-baseline md:justify-between"
+		class="grid-flow-col-dense items-baseline justify-between font-hedvig md:w-full md:items-baseline md:justify-between"
 	>
 		<h2 class="text-lg font-semibold md:text-2xl dark:font-semibold dark:text-stone-300">
 			{title}

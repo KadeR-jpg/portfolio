@@ -5,14 +5,19 @@
 	let jobs_array: CardProps[] = [
 		{
 			title: 'Software Engineer - Conduit Resources',
-			fromTo: 'Feb 2024 - Current',
-			bps: ['Working on some new logging analytics']
+			fromTo: `February 2024 - September 2024`,
+			bps: [
+				'Developed two C# data analysis tools with custom parsers, processing millions of log entries',
+				'Engineered solution to convert unstructured logs to structured data, enhancing analytical capabilities',
+				'Designed and implemented Avalonia UI for efficient data visualization and interaction',
+				'Optimized parsing algorithms, improving processing speed and resource efficiency'
+			]
 		},
 		{
 			title: 'Python Developer - Florida Blue',
 			fromTo: 'October 2022 - June 2023',
 			bps: [
-				'Key contributor to the payment platform team, driving user engagement through innovative logic implementations.',
+				'Key contributor to the payment platform team.',
 				'Maintained code-base integrity for robust and error-free operations.',
 				'Utilized Stripe API for secure payment validation, enhancing data accuracy and security.'
 			]
