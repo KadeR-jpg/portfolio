@@ -48,7 +48,7 @@
 	});
 </script>
 
-<div class="grid place-content-center">
+<div class="grid w-full place-content-center">
 	{#if loading}
 		<p>Fetching playlist...</p>
 	{/if}
@@ -57,44 +57,42 @@
 			<h2 class="font-hedvig text-xl font-extralight text-stone-700 dark:text-stone-300">
 				capsule / <em>{playlist.name}</em>
 			</h2>
-			<div class="flex">
-				<div class="group container relative flex size-32 md:size-52 lg:size-64">
-					{#each tracks as track, idx (track.id)}
-						<button
-							on:click={nextTrack}
-							class="absolute inset-0 z-0 w-full self-center"
-							class:current={idx === 0}
-							style="
+
+			<div class="group relative flex size-32 md:size-52 lg:size-64">
+				{#each tracks as track, idx (track.id)}
+					<img
+						class:current={idx === 0}
+						style="
 								transform: rotate({getRandomRotation()}deg);
 								top: {getRandomOffset()};
 								left: {getRandomOffset()};
-								z-index: {tracks.length - idx};">
-							<img
-								src={track.albumImg}
-								alt="{track.name} album art"
-								class="inset-1 inline-flex size-32 items-center object-cover blur transition-transform duration-150 ease-in md:size-52 lg:size-64 {(
-									idx === 0
-								) ?
-									'!blur-none hover:scale-105'
-								:	'cursor-default'}" />
-						</button>
-					{/each}
-				</div>
+								z-index: {tracks.length - idx};"
+						on:click={nextTrack}
+						on:keydown={nextTrack}
+						src={track.albumImg}
+						alt="{track.name} album art"
+						class="absolute inset-1 z-0 m-0 inline-flex size-32 items-center self-center object-cover blur transition-transform duration-150 ease-in md:size-52 lg:size-64 mix-blend-difference {(
+							idx === 0
+						) ?
+							'!mix-blend-normal !blur-none hover:scale-105'
+						:	'cursor-default'}" />
+				{/each}
 			</div>
-			<div class="flex flex-col">
-				<h3 class="font-hedvig">
-					<a
-						class="font-base cursor-pointer text-lg text-stone-700 underline dark:text-stone-300"
-						target="_blank"
-						rel="noopener noreferrer"
-						href={tracks[0].spotify_link}>
-						{tracks[0].name}
-					</a>
-				</h3>
-				<p class="w-full text-center font-manrope text-stone-500 dark:text-stone-400">
-					by {tracks[0].artist}
-				</p>
-			</div>
+		</div>
+		<div class="flex flex-col pt-4">
+			<h3 class="font-base w-full font-hedvig text-sm font-light text-stone-700">
+				<a
+					class="font-base cursor-pointer text-sm text-stone-700 underline lg:text-lg dark:text-stone-300"
+					target="_blank"
+					rel="noopener noreferrer"
+					href={tracks[0].spotify_link}>
+					{tracks[0].name}
+				</a>
+			</h3>
+			<p
+				class="w-full text-pretty text-center font-manrope text-sm text-stone-500 lg:text-base dark:text-stone-400">
+				>{tracks[0].artist}
+			</p>
 		</div>
 	{/if}
 </div>
