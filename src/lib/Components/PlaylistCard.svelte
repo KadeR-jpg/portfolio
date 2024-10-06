@@ -71,10 +71,10 @@
 						on:keydown={nextTrack}
 						src={track.albumImg}
 						alt="{track.name} album art"
-						class="absolute inset-1 z-0 m-0 inline-flex size-32 items-center self-center object-cover blur transition-transform duration-150 ease-in md:size-52 lg:size-64 mix-blend-difference {(
+						class="absolute inset-1 z-0 m-0 inline-flex size-32 items-center self-center object-cover antialiased transition-transform duration-150 ease-in md:size-52 lg:size-64 {(
 							idx === 0
 						) ?
-							'!mix-blend-normal !blur-none hover:scale-105'
+							'hover:scale-105 active:scale-105'
 						:	'cursor-default'}" />
 				{/each}
 			</div>
