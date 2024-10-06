@@ -5,13 +5,15 @@
 		"Hashable",
 		"LESSGREATER",
 		"mdsvex",
+		"oldschool",
+		"rehype",
 		"STARTOF",
 		"stmts",
 		"wiig"
 	],
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {
-		"editor.defaultFormatter": "svelte.svelte-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"editor.snippetSuggestions": "inline"
 }

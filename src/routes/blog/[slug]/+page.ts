@@ -1,9 +1,9 @@
 import type { Post } from '$lib/types/PostType.js';
 import { error } from '@sveltejs/kit';
 
-export async function load({ params }) {
+export async function load({ params, fetch }) {
 	try {
-		const post = await import(`../../../posts/${params.slug}.md`);
+		const post = await import(`../../../posts/${params.slug}.md`).catch(e => import(`../${params.slug}.svx`));
 		const postsResponse = await fetch('/api/posts');
 		const posts = await postsResponse.json();
 		const fullSlug = `/blog/${params.slug}`;

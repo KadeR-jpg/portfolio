@@ -1,9 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import AsciiSpinner from './AsciiSpinner.svelte';
-	import { fly, fade, slide, blur, scale } from 'svelte/transition';
-	import { quintOut, quintIn, linear } from 'svelte/easing';
-	// import anime from 'animejs';
+	import { blur } from 'svelte/transition';
 	export let image_url: string;
 	export let title: string;
 	export let subtitle: string;
@@ -21,7 +18,7 @@
 <div class="relative w-full">
 	<button
 		on:click={toggleExpand}
-		class="absolute right-0 top-0 inline-flex justify-between px-8 text-center text-xs font-light text-stone-400 dark:text-stone-400"
+		class="inline-flex w-full items-center justify-end px-8 text-center text-xs font-light text-stone-400 dark:text-stone-400"
 		aria-label={isExpanded ? 'Collapse' : 'Expand'}
 	>
 		{isExpanded ? 'Collapse' : 'Expand'}
@@ -45,16 +42,13 @@
 				<AsciiSpinner {is_loading} />
 			</div>
 		{:else if is_playing}
-			<div class="grid max-w-80 overflow-hidden md:text-base" transition:blur>
-				<div class="relative my-4 flex flex-col items-center p-4">
-					<!-- <p class="pb-2 text-center text-xs text-stone-400 dark:text-stone-400">
-						{is_playing ? 'Somewhere currently listening to' : 'I was listening to'}
-					</p> -->
+			<div class="grid max-w-80 overflow-hidden md:text-base" transition:blur={{ duration: 50 }}>
+				<div class="my-4 flex flex-col items-center p-4">
 					<img
 						in:blur
 						src={image_url}
 						alt="cover art"
-						class=" w-40 rounded-full ring-1 ring-stone-800 md:w-60 dark:ring-stone-100 {is_playing
+						class="bg-conic-gradient-right bg-conic-gradient-right w-40 rounded-full ring-1 ring-stone-800 md:w-60 dark:ring-stone-100 {is_playing
 							? ''
 							: 'opacity-20 blur-sm hover:opacity-100 hover:blur-none'} transition-all duration-300 ease-in"
 						style="animation: spin 100s infinite linear;"
