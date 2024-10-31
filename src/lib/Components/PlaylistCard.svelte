@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { dev } from '$app/environment';
-	import { slide } from 'svelte/transition';
 	import { PUBLIC_DEV_URL } from '$env/static/public';
 	import { onMount } from 'svelte';
 	import type { Playlist, SpotifyTrack } from '$lib/types/Playlist';
@@ -52,7 +51,7 @@
 	});
 </script>
 
-<div class="grid w-full place-content-center">
+<div class="grid w-full border-1 border-stone-400">
 	{#if loading}
 		<p>Fetching playlist...</p>
 	{/if}
@@ -94,7 +93,7 @@
 				</a>
 			</h3>
 			<p
-				class="w-full text-pretty text-center font-manrope text-sm text-stone-500 lg:text-base dark:text-stone-400">
+				class="w-full text-pretty font-manrope text-sm text-stone-500 lg:text-base dark:text-stone-400">
 				>{tracks[0].artist}
 			</p>
 		</div>
