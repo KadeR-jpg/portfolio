@@ -62,7 +62,7 @@
 		{#key inspo_text}
 			<p
 				class="flex font-sans font-light text-neutral-700 md:font-normal"
-				transition:slide={{ duration: 300, easing: quintOut }}
+				transition:slide|global={{ duration: 300, easing: quintOut }}
 			>
 				{inspo_text}
 			</p>

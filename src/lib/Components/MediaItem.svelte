@@ -42,10 +42,10 @@
 				<AsciiSpinner {is_loading} />
 			</div>
 		{:else if is_playing}
-			<div class="grid max-w-80 overflow-hidden md:text-base" transition:blur={{ duration: 50 }}>
+			<div class="grid max-w-80 overflow-hidden md:text-base" transition:blur|global={{ duration: 50 }}>
 				<div class="my-4 flex flex-col items-center p-4">
 					<img
-						in:blur
+						in:blur|global
 						src={image_url}
 						alt="cover art"
 						class="bg-conic-gradient-right bg-conic-gradient-right w-40 rounded-full ring-1 ring-stone-800 md:w-60 dark:ring-stone-100 {is_playing

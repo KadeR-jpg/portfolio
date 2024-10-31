@@ -39,7 +39,7 @@
 	{#if open}
 		<nav
 			class="absolute right-0 top-8 flex flex-row justify-end pt-4"
-			transition:fly={{ x: 100, duration: 200 }}
+			transition:fly|global={{ x: 100, duration: 200 }}
 		>
 			<div
 				class="absolute right-0 flex flex-col gap-4 rounded-2xl border-2 border-black bg-purple-300 p-5 text-end text-2xl text-black shadow-lg"

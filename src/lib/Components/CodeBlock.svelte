@@ -153,7 +153,7 @@ puts(fib(4));`
 				</div>
 				<div class="flex flex-col pl-4">
 					{#each output as out}
-						<p in:fly={{ y: 5 }}>
+						<p in:fly|global={{ y: 5 }}>
 							{#if out != ''}
 								> {out}
 							{/if}
