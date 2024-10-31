@@ -30,7 +30,7 @@
 <div class="relative w-full">
 	<button
 		onclick={toggleExpand}
-		class="inline-flex w-full items-center justify-end px-8 text-center text-xs font-light text-stone-400 dark:text-stone-400"
+		class="inline-flex w-full items-center justify-end px-8 text-center text-xs text-stone-600 dark:text-stone-200"
 		aria-label={isExpanded ? 'Collapse' : 'Expand'}
 	>
 		{isExpanded ? 'Collapse' : 'Expand'}
@@ -81,7 +81,7 @@
 							{subtitle}
 						</p>
 						<p
-							class="line-clamp-1 font-manrope text-xs font-semibold text-stone-400 dark:text-stone-500"
+							class="line-clamp-1 font-manrope text-xs font-semibold text-stone-500 dark:text-stone-400"
 						>
 							{subsubtitle}
 						</p>
