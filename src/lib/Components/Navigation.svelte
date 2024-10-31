@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 	import ThemeToggle from './ThemeToggle.svelte';
-	let open = false;
+	let open = $state(false);
 	let onClick = () => {
 		open = !open;
 	};
@@ -11,7 +11,7 @@
 
 <div class="flex flex-col">
 	<button
-		on:click={onClick}
+		onclick={onClick}
 		class="flex cursor-pointer
                             justify-end
                             align-middle md:hidden"

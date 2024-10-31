@@ -1,14 +1,26 @@
 <script lang="ts">
 	import AsciiSpinner from './AsciiSpinner.svelte';
 	import { blur } from 'svelte/transition';
-	export let image_url: string;
-	export let title: string;
-	export let subtitle: string;
-	export let subsubtitle: string;
-	export let link_url: string;
-	export let is_playing: boolean;
-	export let is_loading: boolean;
-	let isExpanded = true;
+	interface Props {
+		image_url: string;
+		title: string;
+		subtitle: string;
+		subsubtitle: string;
+		link_url: string;
+		is_playing: boolean;
+		is_loading: boolean;
+	}
+
+	let {
+		image_url,
+		title,
+		subtitle,
+		subsubtitle,
+		link_url,
+		is_playing,
+		is_loading
+	}: Props = $props();
+	let isExpanded = $state(true);
 
 	function toggleExpand() {
 		isExpanded = !isExpanded;
@@ -17,7 +29,7 @@
 
 <div class="relative w-full">
 	<button
-		on:click={toggleExpand}
+		onclick={toggleExpand}
 		class="inline-flex w-full items-center justify-end px-8 text-center text-xs font-light text-stone-400 dark:text-stone-400"
 		aria-label={isExpanded ? 'Collapse' : 'Expand'}
 	>

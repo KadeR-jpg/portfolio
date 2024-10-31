@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	export let is_loading: boolean = false;
+	interface Props {
+		is_loading?: boolean;
+	}
+
+	let { is_loading = $bindable(false) }: Props = $props();
 	const spinnerCharacters = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
-	let currentCharacter = 0;
+	let currentCharacter = $state(0);
 	let intervalId: NodeJS.Timeout;
 
 	// Function to update the character index in the spinner

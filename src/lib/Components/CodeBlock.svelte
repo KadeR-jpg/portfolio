@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
 	// We need to configure highlight.js for Javascript, and then alias the
 	// exports to match the function signatures that `CodeJar` Component expects
 	import hljs from 'highlight.js/lib/core';
@@ -14,13 +14,15 @@
 </script>
 
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import AsciiSpinner from './AsciiSpinner.svelte';
 	import 'highlight.js/styles/github.css';
-	let output: string[] = [];
-	let isOpen = false;
-	let isLoading = false;
+	let output: string[] = $state([]);
+	let isOpen = $state(false);
+	let isLoading = $state(false);
 
 	let codeItems: { name: string; content: string }[] = [
 		{
@@ -45,8 +47,11 @@ puts(fib(4));`
 			content: `code here`
 		}
 	];
-	let selectedName = codeItems[0].name;
-	$: code = codeItems[0].content;
+	let selectedName = $state(codeItems[0].name);
+	let code;
+	run(() => {
+		code = codeItems[0].content;
+	});
 
 	async function sendData(code: string) {
 		try {
@@ -74,7 +79,7 @@ puts(fib(4));`
 
 	// **NOTE:** Since `onMount` is only called on the client, we can just
 	// make our import there. And assign to our Component's scope
-	let CodeJar: any;
+	let CodeJar: any = $state();
 	onMount(async () => {
 		hljs.highlightAll();
 		({ CodeJar } = await import('@novacbn/svelte-codejar'));
@@ -83,7 +88,7 @@ puts(fib(4));`
 
 {#if CodeJar}
 	<div class="relative flex h-full w-full font-mono">
-		<span class="absolute -bottom-1 left-1 h-full w-full rounded-2xl bg-neutral-700" />
+		<span class="absolute -bottom-1 left-1 h-full w-full rounded-2xl bg-neutral-700"></span>
 		<div class=" z-10 flex h-full w-full flex-col rounded-2xl border-2 border-black bg-white">
 			<div class="relative flex flex-row justify-between border-b-2 border-black px-1 py-2 text-sm">
 				<div class="flex">
@@ -91,7 +96,7 @@ puts(fib(4));`
 					<button
 						disabled
 						class="underline disabled:text-gray-300"
-						on:click={() => (isOpen = !isOpen)}
+						onclick={() => (isOpen = !isOpen)}
 					>
 						{selectedName}
 						<svg
@@ -115,7 +120,7 @@ puts(fib(4));`
 						>
 							{#each codeItems as { name, content }}
 								<button
-									on:click={() => ((isOpen = !isOpen), (selectedName = name), (code = content))}
+									onclick={() => ((isOpen = !isOpen), (selectedName = name), (code = content))}
 									class=" content-start-['&nbsp'] w-full px-3 py-2 text-left text-gray-800 hover:bg-sky-200"
 								>
 									{name}
@@ -125,7 +130,7 @@ puts(fib(4));`
 					{/if}
 				</div>
 				<p class="flex">🚧 Work in Progress 🚧</p>
-				<p class="flex" />
+				<p class="flex"></p>
 			</div>
 			<CodeJar
 				class="flex-1 scroll-smooth px-1 py-2 text-sm font-medium"
@@ -144,7 +149,7 @@ puts(fib(4));`
 					<button
 						disabled
 						class=" text-green-600 underline disabled:cursor-not-allowed disabled:text-red-300"
-						on:click={() => sendData(code)}
+						onclick={() => sendData(code)}
 					>
 						run
 					</button>

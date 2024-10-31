@@ -1,15 +1,17 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { onDestroy, onMount } from 'svelte';
 	import { dev } from '$app/environment';
 	import { PUBLIC_DEV_URL } from '$env/static/public';
 	import MediaItem from './MediaItem.svelte';
 
 	const base_url = dev ? PUBLIC_DEV_URL : `https://www.kadepitsch.com/`;
-	let current_audio: any;
+	let current_audio: any = $state();
 	let initial_load = true;
-	let is_loading = false;
+	let is_loading = $state(false);
 	let intervalId: NodeJS.Timeout;
-	let last_playing_item: any;
+	let last_playing_item: any = $state();
 
 	async function getNowPlaying() {
 		if (initial_load) {
@@ -31,7 +33,7 @@
 			}
 		}
 	}
-	let mediaItemProps: any;
+	let mediaItemProps: any = $state();
 	function getMediaItemProps() {
 		if (current_audio && current_audio.is_playing && !current_audio.podcast) {
 			return {
@@ -77,10 +79,12 @@
 	onDestroy(() => {
 		clearInterval(intervalId);
 	});
-	$: if (current_audio?.is_playing || current_audio?.is_listening) {
-		last_playing_item = current_audio;
-		localStorage.setItem('last_playing_item', JSON.stringify(current_audio));
-	}
+	run(() => {
+		if (current_audio?.is_playing || current_audio?.is_listening) {
+			last_playing_item = current_audio;
+			localStorage.setItem('last_playing_item', JSON.stringify(current_audio));
+		}
+	});
 </script>
 
 {#if mediaItemProps}

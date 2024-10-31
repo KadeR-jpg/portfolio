@@ -2,7 +2,11 @@
 	import { formatDate } from '$lib/utils';
 	import PostPreview from '$lib/Components/PostPreview.svelte';
 
-	export let data;
+	interface Props {
+		data: any;
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <svelte:head>

@@ -5,14 +5,18 @@
 	import { onMount } from 'svelte';
 	import type { Playlist, SpotifyTrack } from '$lib/types/Playlist';
 
-	export let playlistId: string;
+	interface Props {
+		playlistId: string;
+	}
+
+	let { playlistId }: Props = $props();
 
 	const base_url = dev ? PUBLIC_DEV_URL : `https://www.kadepitsch.com/`;
 
-	let playlist: Playlist;
+	let playlist: Playlist = $state();
 	let error: string | null;
-	let tracks: SpotifyTrack[] = [];
-	let loading = true;
+	let tracks: SpotifyTrack[] = $state([]);
+	let loading = $state(true);
 
 	let rotations: number[] = [];
 
@@ -67,8 +71,8 @@
 								top: {getRandomOffset()};
 								left: {getRandomOffset()};
 								z-index: {tracks.length - idx};"
-						on:click={nextTrack}
-						on:keydown={nextTrack}
+						onclick={nextTrack}
+						onkeydown={nextTrack}
 						src={track.albumImg}
 						alt="{track.name} album art"
 						class="absolute inset-1 z-0 m-0 inline-flex size-32 items-center self-center object-cover antialiased transition-transform duration-150 ease-in md:size-52 lg:size-64 {(

@@ -42,14 +42,14 @@
 			  understanding of what constitutes a good design language`
 		}
 	];
-	let inspo_text = imageArray[0].summary;
+	let inspo_text = $state(imageArray[0].summary);
 </script>
 
 <div class="container mx-auto">
 	<div class="grid grid-flow-col-dense gap-4 md:grid-cols-2">
 		{#each imageArray as { id, url, name, summary }}
 			<img
-				on:click={() => (inspo_text = summary)}
+				onclick={() => (inspo_text = summary)}
 				loading="lazy"
 				src={url}
 				alt={name}

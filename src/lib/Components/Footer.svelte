@@ -25,7 +25,7 @@
 				<div class="relative">
 					<span
 						class="absolute -bottom-1 -left-1 h-full w-full rounded-lg bg-black md:rounded-2xl"
-					/>
+					></span>
 					<button
 						class=" relative rounded-lg border-2 border-black bg-white p-1 px-2 py-3 text-xs transition-transform duration-75 hover:-translate-x-1 hover:translate-y-1 md:rounded-2xl md:text-sm"
 					>

@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let prevPost: { slug: string } | null = null;
-	export let nextPost: { slug: string } | null = null;
+	interface Props {
+		prevPost?: { slug: string } | null;
+		nextPost?: { slug: string } | null;
+	}
+
+	let { prevPost = null, nextPost = null }: Props = $props();
 </script>
 
 <nav
@@ -16,7 +20,7 @@
 			<span class="ml-1">Newer</span>
 		</a>
 	{/if}
-	<div />
+	<div></div>
 	{#if nextPost}
 		<a
 			href={nextPost.slug}

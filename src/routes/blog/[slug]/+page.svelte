@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
 	import PostNavigation from '$lib/Components/PostNavigation.svelte';
-	export let data;
-	$: ({ content, meta, prevPost, nextPost } = data);
+	interface Props {
+		data: any;
+	}
+
+	let { data }: Props = $props();
+	let { content, meta, prevPost, nextPost } = $derived(data);
 </script>
 
 <!-- SEO -->
@@ -15,6 +19,7 @@
 </svelte:head>
 
 {#if meta && content}
+	{@const SvelteComponent = content}
 	<article class="prose prose-stone flex flex-col dark:prose-invert">
 		<!-- Title -->
 		<hgroup class="not-prose pb-2">
@@ -31,7 +36,7 @@
 
 		<!-- Post -->
 		<div class="font-manrope">
-			<svelte:component this={content} />
+			<SvelteComponent />
 		</div>
 		<PostNavigation {prevPost} {nextPost} />
 	</article>

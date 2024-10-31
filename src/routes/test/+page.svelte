@@ -1,9 +1,9 @@
 <script lang="ts">
 	import PlaylistCard from '$components/PlaylistCard.svelte';
 	import { onMount } from 'svelte';
-	let playlists = [];
-	let isLoading = true;
-	let error: string = null;
+	let playlists = $state([]);
+	let isLoading = $state(true);
+	let error: string = $state(null);
 
 	onMount(async () => {
 		try {

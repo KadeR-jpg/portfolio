@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let darkMode: Boolean;
+	let darkMode: Boolean = $state();
 
 	function updateDarkMode() {
 		if (
@@ -30,6 +30,6 @@
 	});
 </script>
 
-<button on:click={toggleDarkMode} class="flex">
+<button onclick={toggleDarkMode} class="flex">
 	&#9680;{darkMode ? 'Dark' : 'Light'}
 </button>

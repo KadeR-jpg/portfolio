@@ -1,8 +1,13 @@
 <script lang="ts">
-	export let title = '';
-	let isHovered = false;
-	let x: number;
-	let y: number;
+	interface Props {
+		title?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let { title = '', children }: Props = $props();
+	let isHovered = $state(false);
+	let x: number = $state();
+	let y: number = $state();
 
 	function mouseOver(event: MouseEvent) {
 		isHovered = true;
@@ -18,8 +23,8 @@
 	}
 </script>
 
-<div on:mouseover={mouseOver} on:mouseleave={mouseLeave} on:mousemove={mouseMove}>
-	<slot />
+<div onmouseover={mouseOver} onmouseleave={mouseLeave} onmousemove={mouseMove}>
+	{@render children?.()}
 </div>
 
 {#if isHovered}

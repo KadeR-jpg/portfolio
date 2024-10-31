@@ -1,10 +1,20 @@
 <script lang="ts">
 	import { type Tags, tagClasses } from '$lib/types/PostType';
-	export let title: string;
-	export let date: string;
-	export let description: string;
-	export let link: string;
-	export let tags: Tags[];
+	interface Props {
+		title: string;
+		date: string;
+		description: string;
+		link: string;
+		tags: Tags[];
+	}
+
+	let {
+		title,
+		date,
+		description,
+		link,
+		tags
+	}: Props = $props();
 </script>
 
 <div

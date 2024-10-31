@@ -9,6 +9,11 @@
 	import Arrow_tr from '$lib/Icons/Arrow_tr.svelte';
 	import Logo from '$lib/Icons/Logo.svelte';
 	import ThemeToggle from '../lib/Components/ThemeToggle.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 
 	const links = [
 		{
@@ -92,7 +97,7 @@
 			</div>
 		</nav>
 		<div class="grid justify-items-center px-4 pt-4 md:col-span-4 md:pt-0">
-			<slot />
+			{@render children?.()}
 		</div>
 		<aside class="hidden place-items-start md:grid">
 			<NowPlaying />

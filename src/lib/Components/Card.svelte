@@ -1,12 +1,23 @@
 <script lang="ts">
 	import type { CardProps, CardType } from '$lib/types/CardProps';
 	import ArrowTr from '$lib/Icons/Arrow_tr.svelte';
-	export let cardType: CardType;
-	export let title: CardProps['title'] = 'No Title Provided';
-	export let bps: CardProps['bps'] = ['No bullet points provided'];
-	export let fromTo: CardProps['fromTo'] = 'No date provided';
-	export let blobColor: CardProps['blobColor'] = 'No blob provided';
-	export let link: CardProps['link'] = 'No link provided';
+	interface Props {
+		cardType: CardType;
+		title?: CardProps['title'];
+		bps?: CardProps['bps'];
+		fromTo?: CardProps['fromTo'];
+		blobColor?: CardProps['blobColor'];
+		link?: CardProps['link'];
+	}
+
+	let {
+		cardType,
+		title = 'No Title Provided',
+		bps = ['No bullet points provided'],
+		fromTo = 'No date provided',
+		blobColor = 'No blob provided',
+		link = 'No link provided'
+	}: Props = $props();
 </script>
 
 {#if cardType === 'Project'}
