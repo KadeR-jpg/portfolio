@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--scale-1\.025: 1.025;
+	--font-plex: 'IBM Plex Sans', sans-serif;
+	--font-DM-Mono: 'Dm Mono', sans-serif;
+	--font-hedvig: 'Hedvig Letters Serif', sans-serif;
+}
+&[aria-current='page']::before {
+	view-transition-name: active-page;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 150ms;
+	animation-timing-function: ease-in-out;
+}
+@media (prefers-reduced-motion) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
+.shiki {
+	border-radius: 12px;
+	padding: 1rem;
+	font-family: 'DM Mono', monospace;
+	font-weight: 400;
+}
