@@ -10,15 +10,14 @@ import {
 const baseUrl = dev ? PUBLIC_DEV_URL : 'https://kadepitsch.com';
 const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing?additional_types=track%2Cepisode`;
 
+const corsHeaders = {
+	'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+	'Access-Control-Allow-Methods': 'GET, OPTIONS',
+	'Access-Control-Allow-Headers': 'Content-Type'
+};
+
 export async function OPTIONS() {
-	return {
-		status: 200,
-		headers: {
-			'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
-			'Access-Control-Allow-Methods': 'GET, OPTIONS',
-			'Access-Control-Allow-Headers': 'Content-Type'
-		}
-	};
+	return new Response(null, { headers: corsHeaders });
 }
 
 async function getSpotifyAccessToken(): Promise<string> {
@@ -54,7 +53,7 @@ export async function GET() {
 	});
 
 	if (res.status === 204 || res.status > 400) {
-		return json({ body: { isPlaying: false } });
+		return json({ body: { isPlaying: false } }, { headers: corsHeaders });
 	}
 
 	const data = await res.json();
@@ -74,21 +73,19 @@ export async function GET() {
 		artist = data.item.artists.map((_artists: { name: string }) => _artists.name).join(', ');
 		album = data.item.album.name;
 	}
-	return json({
-		podcast,
-		name,
-		publisher,
-		title,
-		artist,
-		host,
-		album,
-		is_playing,
-		cover_art,
-		link,
-		headers: {
-			'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
-			'Access-Control-Allow-Methods': 'GET, OPTIONS',
-			'Access-Control-Allow-Headers': 'Content-Type'
-		}
-	});
+	return json(
+		{
+			podcast,
+			name,
+			publisher,
+			title,
+			artist,
+			host,
+			album,
+			is_playing,
+			cover_art,
+			link
+		},
+		{ headers: corsHeaders }
+	);
 }

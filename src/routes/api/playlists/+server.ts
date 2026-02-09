@@ -9,15 +9,14 @@ import {
 import type { SpotifyPlaylistResponse } from '$lib/types/Playlist.js';
 // const baseUrl = dev ? PUBLIC_DEV_URL : 'https://kadepitsch.com/';
 const PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/playlists';
+const corsHeaders = {
+	'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+	'Access-Control-Allow-Methods': 'GET, OPTIONS',
+	'Access-Control-Allow-Headers': 'Content-Type'
+};
+
 export async function OPTIONS() {
-	return {
-		status: 200,
-		headers: {
-			'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
-			'Access-Control-Allow-Methods': 'GET, OPTIONS',
-			'Access-Control-Allow-Headers': 'Content-Type'
-		}
-	};
+	return new Response(null, { headers: corsHeaders });
 }
 
 async function getSpotifyAccessToken(): Promise<string> {
@@ -65,15 +64,15 @@ async function getPlaylistData(playlistId: string, accessToken: string) {
 export async function GET({ url }) {
 	const playlistId = url.searchParams.get('id');
 	if (!playlistId) {
-		return json({ error: 'No playlist id provided' }, { status: 400 });
+		return json({ error: 'No playlist id provided' }, { status: 400, headers: corsHeaders });
 	}
 	try {
 		const accessToken = await getSpotifyAccessToken();
 		const playlist = await getPlaylistData(playlistId, accessToken);
-		return json(playlist);
+		return json(playlist, { headers: corsHeaders });
 	} catch (err) {
 		console.error(`Error fetching playlist: ${err}`);
 		console.error('Spotify API error: ');
-		return json({ error: 'Failed to fetch playlist' }, { status: 500 });
+		return json({ error: 'Failed to fetch playlist' }, { status: 500, headers: corsHeaders });
 	}
 }
