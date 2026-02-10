@@ -11,7 +11,7 @@ const baseUrl = dev ? PUBLIC_DEV_URL : 'https://kadepitsch.com';
 const now_playing_endpoint = `https://api.spotify.com/v1/me/player/currently-playing?additional_types=track%2Cepisode`;
 
 const corsHeaders = {
-	'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+	'Access-Control-Allow-Origin': 'https://kadepitsch.com',
 	'Access-Control-Allow-Methods': 'GET, OPTIONS',
 	'Access-Control-Allow-Headers': 'Content-Type'
 };

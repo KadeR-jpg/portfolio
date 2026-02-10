@@ -10,7 +10,7 @@ import type { SpotifyPlaylistResponse } from '$lib/types/Playlist.js';
 // const baseUrl = dev ? PUBLIC_DEV_URL : 'https://kadepitsch.com/';
 const PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/playlists';
 const corsHeaders = {
-	'Access-Control-Allow-Origin': 'https://www.kadepitsch.com',
+	'Access-Control-Allow-Origin': 'https://kadepitsch.com',
 	'Access-Control-Allow-Methods': 'GET, OPTIONS',
 	'Access-Control-Allow-Headers': 'Content-Type'
 };

@@ -75,7 +75,7 @@
             class="size-4 rotate-45 fill-stone-700 transition-all duration-100 ease-out group-hover:rotate-90 dark:fill-stone-100"
           />LinkedIn
         </a>
-        <ThemeToggle />
+        <!-- <ThemeToggle /> -->
       </div>
     </nav>
     <div class="grid justify-items-center p-4 md:col-span-4 md:pt-0">
