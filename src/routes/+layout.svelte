@@ -42,7 +42,7 @@
   </header>
   <div class="grid md:grid-cols-6">
     <nav
-      class="sticky top-0 flex h-fit flex-row justify-evenly border-b py-2 font-hedvig md:justify-start md:border-0"
+      class="sticky top-0 flex h-fit flex-row justify-evenly border-b bg-stone-100 dark:bg-stone-800 py-2 font-hedvig md:justify-start md:border-0"
     >
       <div
         class="flex flex-row gap-2 px-2 text-xs font-light antialiased *:text-stone-700 md:flex-col md:gap-2 md:text-lg *:dark:text-stone-100"

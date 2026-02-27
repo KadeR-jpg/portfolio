@@ -1,6 +1,7 @@
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
   import resume from '$lib/assets/2026_resume.pdf';
+  import DayOne from '$components/aoc/solutions/DayOne.svelte';
   let jobs_array = [
     {
       title: 'Software Engineer - Envita Health',
