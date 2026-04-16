@@ -18,16 +18,16 @@
     <a href={link}>
       <h1 class="text-pretty underline hover:no-underline md:text-2xl">{title}</h1>
     </a>
-    <p class="text-stone-400 dark:text-stone-500">{date}</p>
+    <p class="text-stone-400 dark:text-stone-400">{date}</p>
   </hgroup>
   <span class="inline-flex gap-2 py-1">
     {#each tags as tag, i (i)}
-      <small class="px-1 text-stone-400 dark:text-stone-500">
+      <small class="px-1 text-stone-400 dark:text-stone-400">
         #{tag}
       </small>
     {/each}
   </span>
-  <article class="pb-2 text-stone-700">
+  <article class="pb-2 prose prose-stone dark:prose-invert">
     {description}
   </article>
 </div>
