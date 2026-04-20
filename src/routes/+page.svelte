@@ -7,12 +7,11 @@
   <title>Welcome</title>
 </svelte:head>
 <article id="main" class="prose prose-stone dark:prose-invert">
-  <h2 class="font-hedvig text-3xl font-bold text-pretty dark:font-medium">I'm Kade Pitsch.</h2>
+  <h2 class="font-hedvig text-3xl font-bold text-pretty dark:font-medium">My name is Kade.</h2>
   <section class="font-manrope text-pretty">
     I am a software engineer with 4+ years of experience. Currently working in the biotech/medical
-    field. I build AI workflows and data pipelines for cancer research. The last year has mostly
-    been spent wrangling LLMs into doing useful things with scientific literature. Which is usually
-    just ensuring it's not spitting out complete bullshit.
+    field. This past year I have spent working with Large Language Models and their ability of understanding medical literature. I have had fun wiring it all up with some TypeScript. The great thing about working with any modern LLM provider is that it is just HTTP and JSON so it's completely trivial to wire your own "framework" up.
+If you ever find yourself using some of these tools, please do not start with something like LangChain. It is completely unnecessary for 95% of use-cases. I found it a lot more fun (and simple) just cobbling my own together. 
   </section>
   <!-- <h2 class="font-hedvig text-xl text-pretty dark:font-medium">
     I graduated from Montana State University with a B.S of <mark
@@ -22,12 +21,11 @@
     </mark>
   </h2> -->
   <h2 class="mb-0 font-hedvig text-xl text-pretty">
-    I write about software engineering and whatever else I am thinking about.
+    It's just code.
   </h2>
   <p class="font-manrope">
-    The site has been a little playground since I graduated college. I have been rebuilding it and
-    breaking it for years. It's my little chunk of the internet, some of the choices probably don't
-    make sense. I am sure I get more joy watching a little spinning record of what I am currently
-    listening to than you will. That's fine. Welcome.
+    I am still learning and this is just another space for me to tinker, there is no rhyme or reason for anything here. If you see a spinning record of what I am currently listening to, it's cause I thought it was cool. If you read a post about frustrations in modern tech, it's just what was on my mind. If you see a spelling or grammatical error, well it's written by a human.
+I was lucky enough to have the creator of HTMX as my professor for our senior capstone project. My favorite quote from him, there are several. Whenever we were struggling through a project he would ALWAYS preface with "It's just code".
+Such a simple statement with compounding effects. It rationalized everything, there was nothing was too complicated, nothing we could not learn or understand. It's just code! I have taken that with me and use it everyday in every part of life. I hope I can pass it on to somebody still trying to learn, espcially in this post-LLM era. There truly is nothing you cannot learn.
   </p>
 </article>
