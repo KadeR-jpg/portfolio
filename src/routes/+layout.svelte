@@ -4,7 +4,6 @@
   import NowPlaying from '$lib/components/NowPlaying.svelte';
   import Arrow from 'phosphor-svelte/lib/ArrowUp';
   import Logo from '$lib/Icons/Logo.svelte';
-  import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   let { children } = $props();
 
   const links = [

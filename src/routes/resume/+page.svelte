@@ -1,46 +1,48 @@
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
-  import resume from '$lib/assets/2026_resume.pdf';
-  import DayOne from '$components/aoc/solutions/DayOne.svelte';
+  import resume from '$lib/assets/26resumeV5.pdf';
   let jobs_array = [
     {
-      title: 'Software Engineer - Envita Health',
+      title: 'Full-stack Software Engineer - Envita Medical, AZ',
       fromTo: 'Current',
       bps: [
-        'Architected and built a multistep AI research pipeline from scratch',
-        'Developed custom LLM orchestration tools in TypeScript, enhancing our model provider flexibility',
-        'Architected our the entire LIMS integration with our own machines and network',
-        'High level of interdisciplinary collaboration'
+        'Built a multi-stage AI research pipeline in TypeScript analyzing drug-pathway relationships across 2.8M + data points with full transactional logging',
+        'Designed a provider agnostic LLM orchestration layer to A/B test different providers across the pipeline stages',
+        'Built a custom patient report editor for physicians to review using Sveltekit',
+        'Architected a LIMS integration with our local infrastructure, AWS and third party contractors',
+        'Built a custom parser and bulk database upload tool in Rust'
       ]
     },
     {
-      title: 'Software Engineer - Conduit Resources',
+      title: 'Software Engineer - Conduit Resources, Remote',
       fromTo: `February 2024 - September 2024`,
       bps: [
-        'Developed two C# data analysis tools with custom parsers, processing millions of log entries',
-        'Created a program to convert old unstructured logs to structured data, improving data consistency and ability to search'
+        'Built an ETL pipeline in C# that parsed 2M + unstructured log files into structured, queryable data for searching, error analytics, and real-time monitoring',
+        'Owned the triage of engineering tickets across a legacy codebase, keeping things running for every active client'
       ]
     },
     {
-      title: 'Python Developer - Florida Blue',
+      title: 'Python Developer(Contract) - Florida Blue, Remote',
       fromTo: 'October 2022 - June 2023',
-      bps: ['Contributor and maintainer on the payment platform team.']
+      bps: [
+        'Maintained legacy Python for the payment verification system',
+        'Integrated third-party payment providers like Stripe and PayPal',
+      ]
     },
     {
-      title: 'Solutions Developer - Zoot Enterprise',
+      title: 'Solutions Developer - Zoot Enterprise, MT',
       fromTo: 'July 2021 - May 2022',
       bps: [
-        'Developed a Bash script to automate peak season data collection, reduced manual data entry by 30 days.',
-        'Oversaw production installs, using tools like Kibana, MySQL, and Linux servers to monitor status.',
-        'Worked directly with one of the largest US retailer to ensure platforms were capable for holiday season.'
+        'Owned the integration between Zoot\'s risk decisioning systems and Target\'s production infrastructure end-to-end, debugging production issues directly with Target\'s engineering team',
+        'Wrote a Bash and Python automation tool for pulling peak season data, dropping a 30-day manual process to under 2 hours'
       ]
     },
     {
-      title: 'Python Developer - MSU',
+      title: 'Python Developer - MSU, MT',
       fromTo: 'February 2020 - November 2020',
       bps: [
-        'Developed a program to scrape and extract student names from public honor roll lists',
-        'Led an effort to modernize recruitment strategy with social media integration.'
+        'Developed a program to scrape and extract student names from public honor roll lists for email outreach campaigns',
+        'Led the effort to modernize recruitment strategy with social media integration.'
       ]
     }
   ];
