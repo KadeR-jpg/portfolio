@@ -40,6 +40,9 @@ async function getSpotifyAccessToken(): Promise<string> {
 	});
 
 	const data = await response.json();
+	if (!response.ok) {
+		throw new Error(`Spotify token refresh failed: ${data.error} - ${data.error_description}`);
+	}
 
 	return data.access_token;
 }
